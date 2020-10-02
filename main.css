@@ -1,6 +1,9 @@
 /* Sofies first attempt of a main.css file */
 /* Updated: 01/10-20 */
-
+*{
+    
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
 html, body {
     min-height: 100%;
     margin: 0;
@@ -15,10 +18,15 @@ html, body {
     
 }
 
+#navbar {
+    font-size: 20pt;
+}
+
 #footer {
     position: absolute;
     bottom: 0;
     left: 0;
+    font-size: 10pt;
 }
 
 #content {
