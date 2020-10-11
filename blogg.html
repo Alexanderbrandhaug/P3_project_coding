@@ -4,14 +4,15 @@
 <head>
     <title>Blogg</title>
     <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="blogg.css">
+    <link rel="stylesheet" href="CSS/blogg.css">
+    <script src="JS/blogg_arkiv.js" defer></script>
 </head>
 
 <body>
 
     <div id="navbar">
         <a class="navpage" href="forside.html" target="_parent">Forside</a>
-        <a class="navpage" href="blogg.html" target="_parent">Blogg</a>
+        <a class="navpage" href="blogg.html" target="_parent">Blogg <div class="whiteLine"></div></a>
         <a class="navpage" href="galleri.html" target="_parent">Galleri</a>
         <a class="navpage" href="nettbutikk.html" target="_parent">Nettbutikk</a>
         <a class="navpage" href="om_meg.html" target="_parent">Om meg</a>
@@ -30,16 +31,25 @@
 
             <div class="blogg_content">
                 <h1>h1 overskrift</h1>
-                <p>Dato</p>
+                <h3>Dato</h3>
                 <p>Blogg-tekst</p>
             </div>
 
             <div class="blogg_content">
-                <h1>Ny strikktrend!</h1>
-                <p>02.10.20</p>
+                <h1>Enda en ny strikktrend!</h1>
+                <h3>02.10.2020</h3>
                 <p>Sit amet sodales ligula libero et nibh. Nunc sagittis suscipit metus quis sollicitudin. Nunc ut erat
                     nisi. Vivamus commodo arcu sed erat vulputate porta. Pellentesque ultrices accumsan elementum.
                     Pellentesque mattis sapien arcu, vitae pretium ex viverra ac.</p>
+                <img src="images/strikkp1.jpg">
+            </div>
+            <div class="blogg_content">
+                <h1>Ny strikktrend!</h1>
+                <h3>25.09.2020</h3>
+                <p>Sit amet sodales ligula libero et nibh. Nunc sagittis suscipit metus quis sollicitudin. Nunc ut erat
+                    nisi. Vivamus commodo arcu sed erat vulputate porta. Pellentesque ultrices accumsan elementum.
+                    Pellentesque mattis sapien arcu, vitae pretium ex viverra ac.</p>
+                <img src="images/strikkp1.jpg">
             </div>
 
 
@@ -49,6 +59,14 @@
 
         <div id="right">
             id = "right"
+
+            <div>
+                <h1>Arkiv:</h1>
+                <ul id="arkiv_liste">
+
+                </ul>
+            </div>
+
         </div>
 
     </div>
