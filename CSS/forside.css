@@ -1,0 +1,11 @@
+body {
+    margin: 0px;
+}
+
+.backimg {
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: url("images/forside.jpg");
+    background-repeat:no-repeat;
+    min-height: 100vh;
+    }
