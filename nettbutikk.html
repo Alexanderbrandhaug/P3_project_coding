@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>General layout</title>
+    <title>Nettbutikk</title>
     <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/nettbutikk.css">
 </head>
 
 <body>
@@ -18,10 +19,35 @@
 
     <div id="content">
         <div id="left">
-            id = "left"
+            <div class="article">
+                <img src="images/strikkp1.jpg">
+                <h2>Artikkel 1</h2>
+                <button onclick="selectSize()">Legg til vare</button>
+
+            </div>
+            <div class="article">
+                <h2>Artikkel 2</h2>
+                <button onclick="selectSize()">Legg til vare</button>
+                <img src="images/strikkp1.jpg">
+            </div>
+            <div class="article">
+                <h2>Artikkel 3</h2>
+                <button onclick="selectSize()">Legg til vare</button>
+                <img src="images/strikkp1.jpg">
+            </div>
+            <div class="article">
+                <h2>Artikkel 4</h2>
+                <button onclick="selectSize()">Legg til vare</button>
+                <img src="images/strikkp1.jpg">
+            </div>
+            <div class="article">
+                <h2>Artikkel 5</h2>
+                <button onclick="selectSize()">Legg til vare</button>
+                <img src="images/strikkp1.jpg">
+            </div>
         </div>
         <div id="right">
-            id = "right"
+            <ul id="summary"></ul>
         </div>
 
     </div>
@@ -30,6 +56,7 @@
     </div>
 
     <script src="JS/navbar_footer.js"></script>
+    <script src="JS/nettbutikk.js"></script>
 
 </body>
 
