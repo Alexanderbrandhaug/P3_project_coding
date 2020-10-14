@@ -8,15 +8,12 @@ function displayDropdown(dropdown_id) {
 }
 
 function selectSize(size) {
-    //dropdown.appendChild(option)
-
+    
     var line = document.createElement("P")
     var textNode = document.createTextNode(size)
 
     line.appendChild(textNode)
 
     right.appendChild(line)
-
-    
 
 }
