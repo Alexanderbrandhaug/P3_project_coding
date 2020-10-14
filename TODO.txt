@@ -1,0 +1,10 @@
+Bilde i hver artikkel: sørg for at det ikke blir støree enn så som så!
+
+Legg til bilder
+
+Legg til artikkel-navn
+
+Legg til beskrivelse
+
+Lag dropdown
+
