@@ -1,9 +1,9 @@
 h1 {
-    font-size: 25px;
+    font-size: 35px;
 }
 
 p {
-    font-size: 10pt;
+    font-size: 17px;
 }
 
 .blogg_content {
@@ -40,4 +40,24 @@ p {
     text-align: left;
     width: 50%;
     margin-left: 50%;
+}
+
+#arkiv_liste > * {
+    font-weight: bold;
+}
+
+#arkiv_liste > li {
+    list-style: ">";
+}
+
+#arkiv_liste > li > button {
+    font-size: 17px; /*Same as p*/
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+
+#arkiv_liste > li > button:hover {
+    cursor: pointer;
 }
