@@ -5,18 +5,38 @@ years.forEach(make_list);
 
 function make_list(x){
     let node = document.createElement("li");
-    node.innerText = x;
+    let button = document.createElement("button")
+    button.innerText = x;
+    button.type = "button";
+    button.onclick = function() {create_sub_list(this)};
 
-    let childList = document.createElement("ul");
+    node.appendChild(button);
+    document.getElementById("arkiv_liste").appendChild(node)
+}
 
-    for (let y = 0; y < months.length; y++){
-        let child = document.createElement("li");
-        child.innerText = months[y];
-        childList.appendChild(child);
+function create_sub_list(x) {
+
+    x = x.parentNode;
+
+    if (x.name !== "extended"){
+        let childList = document.createElement("ul");
+        childList.onclick = function() {};
+
+        for (let y = 0; y < months.length; y++){
+            let child = document.createElement("li");
+            child.innerText = months[y];
+            childList.appendChild(child);
+        }
+
+        x.appendChild(childList);
+
+        x.name = "extended"
+    }
+    else {
+        x.removeChild(x.lastChild)
+        x.name = "closed"
     }
 
-    node.appendChild(childList);
-    document.getElementById("arkiv_liste").appendChild(node)
 
-    console.log("Test")
+    /*console.log("Test")*/
 }
