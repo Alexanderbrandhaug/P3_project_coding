@@ -34,11 +34,30 @@ img {
     
 }
 
+.sizeDropDown {
+    background-color: red;
+    font-style: italic;
+}
+
 .sizeBtn {
     position: absolute;
     top: 10%;
     right: 5px;
     max-width: 30%;
+    min-width: 100px;
+    height: 30px;
+}
+
+.sizeOptions {
+    display: none;
+    position: absolute;
+    top: 10% + 30px;
+    right: 5px;
+    min-width: 100px;
+}
+
+.sizeOptions a {
+    display: block;
 }
 
 
