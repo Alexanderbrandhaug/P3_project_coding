@@ -2,6 +2,7 @@
 
 const left = document.getElementById("left")
 const right = document.getElementById("right")
+const summary = document.getElementById("summary")
 
 
 const articles = [
@@ -139,7 +140,7 @@ function addToCart(articleId) {
     selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price})
     console.log(selectedArticles)
     line.appendChild(textNode)
-    right.appendChild(line)
+    summary.appendChild(line)
 }
 
 function displayDropdown(dropdown_id) {
