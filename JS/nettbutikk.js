@@ -6,11 +6,11 @@ const summary = document.getElementById("summary")
 
 
 const articles = [
-    {id: 0, name: "Artikkel 1", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["0-3 måneder", "6-12 måneder", "1-2 år"], selectedSize: ""},
-    {id: 1, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: ""},
-    {id: 2, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: ""},
-    {id: 3, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: ""},
-    {id: 4, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: ""},
+    {id: 0, name: "Artikkel 1", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["0-3 måneder", "6-12 måneder", "1-2 år"], selectedSize: "", number: ""},
+    {id: 1, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
+    {id: 2, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
+    {id: 3, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
+    {id: 4, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
 ]
 
 const selectedArticles = []
@@ -48,24 +48,47 @@ for (let i = 0; i < articles.length; i++) {
     sizeDD.setAttribute('name', 'sizeDD'+articles[i].id)
     sizeDD.addEventListener('change', function() {updateSize(this.value, articles[i].id)} )
     
-
+    // Default size option will be "Velg størrelse"
     var defaultSizeOption = document.createElement("option")
     defaultSizeOption.setAttribute('value', 'Velg størrelse')
     defaultSizeOption.setAttribute('selected', true)
     defaultSizeOption.text = "Velg størrelse"
     sizeDD.appendChild(defaultSizeOption)
 
+    // Iterate through size options for article
     for (let j = 0; j < articles[i].sizes.length; j++) {
-        var option = document.createElement("option")
-        option.setAttribute('value', articles[i].sizes[j])
-        option.text =  articles[i].sizes[j]
-        sizeDD.appendChild(option)
+        var sizeOption = document.createElement("option")
+        sizeOption.setAttribute('value', articles[i].sizes[j])
+        sizeOption.text =  articles[i].sizes[j]
+        sizeDD.appendChild(sizeOption)
     }
 
+    // Select number of articles dropdown menu
+    var numberDD = document.createElement("select")
+    numberDD.setAttribute('class', 'numberDD')
+    numberDD.setAttribute('id', 'numberDD'+articles[i].id)
+    numberDD.setAttribute('name', 'numberDD'+articles[i].id)
+    numberDD.addEventListener('change', function() {updateNumber(this.value, articles[i].id)})
+
+    // Default number option will be "Velg antall"
+    var defaultNumberOption = document.createElement("option")
+    defaultNumberOption.setAttribute('value', 'Velg antall')
+    defaultNumberOption.setAttribute('selected', true)
+    defaultNumberOption.text = "Velg antall"
+    numberDD.appendChild(defaultNumberOption)
+
+    // Possible to choose max 5 items
+    for (let j = 1; j < 6; j++) {
+        var numberOption = document.createElement("option")
+        numberOption.setAttribute('value', j.toString())
+        numberOption.text = j.toString()
+        numberDD.appendChild(numberOption)
+    }
+
+    // Add to cart button
     var addToCartBtn = document.createElement("button")
     addToCartBtn.setAttribute('class', 'addToCartBtn')
     addToCartBtn.innerHTML = "Legg til i handlekurv"
-    // When pressed, the dropdown menu will be displayed 
     addToCartBtn.addEventListener('click', function() {addToCart(articles[i].id)})
 
     article_division.appendChild(articleName)
@@ -73,8 +96,8 @@ for (let i = 0; i < articles.length; i++) {
     article_division.appendChild(articleDescription)
     article_division.appendChild(articleImage)
     
-    
     article_division.appendChild(sizeDD)
+    article_division.appendChild(numberDD)
     article_division.appendChild(addToCartBtn)
 
 
@@ -82,10 +105,6 @@ for (let i = 0; i < articles.length; i++) {
 }
 
 function updateSize(value, articleId) {
-
-   
-
-
     if (value == "") {
         articles[articleId].selectedSize = ""
     } else if (value == "Velg størrelse") {
@@ -93,34 +112,19 @@ function updateSize(value, articleId) {
     } else {
         articles[articleId].selectedSize = value
     }
-
-    
-
-    console.log(articles[articleId])
-
-    console.log(articles[articleId].selectedSize)
-
-
 }
 
+function updateNumber(value, articleId) {
+    if (value == "") {
+        articles[articleId].number = ""
+    } else if (value == "Velg antall") {
+        articles[articleId].number = ""
+    } else {
+        articles[articleId].number = value
+    }
 
-
-// Close the dropdown menu if the user clicks outside of it
-// DENNE MÅ SKRIVES OM
-// window.onclick = function(event) {
-//     if (!event.target.matches('.sizeBtn')) {
-//       var dropdowns = document.getElementsByClassName("sizeDropDown");
-//       console.log(dropdowns)
-//       var i;
-//       for (i = 0; i < dropdowns.length; i++) {
-//         var openDropdown = dropdowns[i];
-//         console.log(openDropdown)
-//         if (openDropdown.style.display = "block") {
-//           openDropdown.style.display = "none";
-//         }
-//       }
-//     }
-//   }
+    console.log(articles[articleId])
+}
 
 
 function updateCheckout(articleName, articlePrice, articleSize){
@@ -135,7 +139,9 @@ function updateCheckout(articleName, articlePrice, articleSize){
 
 function addToCart(articleId) {
     var line = document.createElement("p")
-    var textNode = document.createTextNode(articles[articleId].name + "\t" + articles[articleId].selectedSize + "\t" + articles[articleId].price)
+    
+    var article = articles[articleId]
+    var textNode = document.createTextNode(article.name + "\t" + article.number + "\t" + article.selectedSize + "\t" + articles[articleId].price)
 
     selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price})
     console.log(selectedArticles)

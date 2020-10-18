@@ -40,8 +40,14 @@ h2 {
 
 .sizeDD {
     position: absolute;
-    top: 5%;
+    bottom: 35%;
     right: 5%
+}
+
+.numberDD {
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
 }
 
 .addToCartBtn {
@@ -51,8 +57,9 @@ h2 {
     
 }
 
-.sizeDD, .addToCartBtn {
+.sizeDD, .numberDD, .addToCartBtn {
     background-color: lightgray;
+    min-width: 150px;
 }
 
 .addToCartBtn:hover{
@@ -63,15 +70,13 @@ h2 {
     border-style: solid;
     border-color: black;
     margin: 20px;
-    min-height: 70%;
-    align-items: center;
-
-}
-
-#summary > p {
+    min-height: 100%;
     text-align: center;
 }
 
+.summaryTitle {
+    font-size: 20pt;
+}
 /* .sizeDropDown {
     position: absolute;
     top: 10%;
