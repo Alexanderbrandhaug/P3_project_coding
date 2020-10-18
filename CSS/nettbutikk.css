@@ -4,7 +4,7 @@
     position: relative;
     min-height: 180px;
 }
-img {
+.article-image {
     position: absolute;
     top: 10%;
     left: 5px;
@@ -55,7 +55,7 @@ h2 {
     background-color: lightgray;
 }
 
-.addToCartBtn:hover, sizeDD:hover {
+.addToCartBtn:hover{
     background-color: white;
 }
 

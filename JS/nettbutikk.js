@@ -38,6 +38,7 @@ for (let i = 0; i < articles.length; i++) {
     // Article image
     var articleImage = document.createElement('img')
     articleImage.setAttribute('src', articles[i].image_loc)
+    articleImage.setAttribute('class', 'article-image')
 
     // Select size dropdown    
     var sizeDD = document.createElement("select")
