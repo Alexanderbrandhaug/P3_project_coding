@@ -5,11 +5,11 @@ const right = document.getElementById("right")
 
 
 const articles = [
-    {id: 1, name: "Artikkel 1", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["0-3 måneder", "6-12 måneder", "1-2 år"]},
-    {id: 2, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"]},
-    {id: 3, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"]},
-    {id: 4, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"]},
-    {id: 5, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"]},
+    {id: 0, name: "Artikkel 1", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["0-3 måneder", "6-12 måneder", "1-2 år"], selectedSize: ""},
+    {id: 1, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: ""},
+    {id: 2, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: ""},
+    {id: 3, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: ""},
+    {id: 4, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: ""},
 ]
 
 const selectedArticles = []
@@ -73,9 +73,24 @@ for (let i = 0; i < articles.length; i++) {
     sizeDropDown.appendChild(options)
 
     
+    var sizeDD = document.createElement("select")
+    sizeDD.setAttribute('id', 'sizeDD'+articles[i].id)
+    sizeDD.setAttribute('name', 'sizeDD'+articles[i].id)
+    sizeDD.addEventListener('change', function() {updateSize(this.value, articles[i].id)} )
+    
 
+    var defaultSizeOption = document.createElement("option")
+    defaultSizeOption.setAttribute('value', 'Velg størrelse')
+    defaultSizeOption.setAttribute('selected', true)
+    defaultSizeOption.text = "Velg størrelse"
+    sizeDD.appendChild(defaultSizeOption)
 
-
+    for (let j = 0; j < articles[i].sizes.length; j++) {
+        var option = document.createElement("option")
+        option.setAttribute('value', articles[i].sizes[j])
+        option.text =  articles[i].sizes[j]
+        sizeDD.appendChild(option)
+    }
 
     article_division.appendChild(articleName)
     article_division.appendChild(articlePrice)
@@ -84,10 +99,33 @@ for (let i = 0; i < articles.length; i++) {
     
     article_division.appendChild(sizeDropDown)
 
+    article_division.appendChild(sizeDD)
+
 
     left.appendChild(article_division)
 }
 
+function updateSize(value, articleId) {
+
+   
+
+
+    if (value == "") {
+        articles[articleId].selectedSize = ""
+    } else if (value == "Velg størrelse") {
+        articles[articleId].selectedSize = ""
+    } else {
+        articles[articleId].selectedSize = value
+    }
+
+    
+
+    console.log(articles[articleId])
+
+    console.log(articles[articleId].selectedSize)
+
+
+}
 
 
 
