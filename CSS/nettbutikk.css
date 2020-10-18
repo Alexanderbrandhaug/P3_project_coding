@@ -35,29 +35,39 @@ img {
 }
 
 .sizeDropDown {
-    background-color: red;
-    font-style: italic;
-}
-
-.sizeBtn {
     position: absolute;
     top: 10%;
     right: 5px;
-    max-width: 30%;
-    min-width: 100px;
-    height: 30px;
+}
+
+.sizeBtn {
+    position: relative;
+    width: 100%;
+    background-color: lightgray;
+    border: none;
 }
 
 .sizeOptions {
     display: none;
-    position: absolute;
-    top: 10% + 30px;
-    right: 5px;
-    min-width: 100px;
+    position: relative;
+    width: 100%;
+    background-color: lightgray;
+
 }
 
 .sizeOptions a {
     display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.sizeBtn, .sizeOptions a {
+    font-size: 8pt;
+    
+}
+
+.sizeOptions a:hover {
+    background-color: rgb(245, 245, 245);
 }
 
 

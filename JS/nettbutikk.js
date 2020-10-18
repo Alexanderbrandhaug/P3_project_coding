@@ -12,6 +12,8 @@ const articles = [
 
 
 
+
+
 for (let i = 0; i < articles.length; i++) {
     // Create division where information about the article will be displayed
     var article_division = document.createElement("div")
@@ -37,9 +39,9 @@ for (let i = 0; i < articles.length; i++) {
     articleImage.setAttribute('src', articles[i].image_loc)
 
     // Create division for size selection dropdown
-    // var sizeDropDown = document.createElement('div')
-    // sizeDropDown.setAttribute('div', 'sizeDropDown')
-    // sizeDropDown.setAttribute('id', 'sizeDD'+articles[i].id)
+    var sizeDropDown = document.createElement('div')
+    sizeDropDown.setAttribute('class', 'sizeDropDown')
+    sizeDropDown.setAttribute('id', 'sizeDD'+articles[i].id)
 
     // Button for size selection, will display dropdown menu for sizes
     var sizeBtn = document.createElement('button')
@@ -58,13 +60,18 @@ for (let i = 0; i < articles.length; i++) {
     for (let j = 0; j < articles[i].sizes.length; j++){
         var option = document.createElement('a')
         option.addEventListener('click', updateCheckout)
+        option.setAttribute('href', '#')
         option.innerHTML = articles[i].sizes[j]
         options.appendChild(option)
     }
 
 
-    //sizeDropDown.appendChild(sizeBtn)
-    //sizeDropDown.appendChild(options)
+    sizeDropDown.appendChild(sizeBtn)
+    sizeDropDown.appendChild(options)
+
+    
+
+
 
 
     article_division.appendChild(articleName)
@@ -72,14 +79,37 @@ for (let i = 0; i < articles.length; i++) {
     article_division.appendChild(articleDescription)
     article_division.appendChild(articleImage)
     
-    //article_division.appendChild(sizeDropDown)
+    article_division.appendChild(sizeDropDown)
 
-    article_division.appendChild(sizeBtn)
-    article_division.appendChild(options)
 
     left.appendChild(article_division)
 }
 
+
+
+
+// Close the dropdown menu if the user clicks outside of it
+// DENNE MÅ SKRIVES OM
+// window.onclick = function(event) {
+//     if (!event.target.matches('.sizeBtn')) {
+//       var dropdowns = document.getElementsByClassName("sizeDropDown");
+//       console.log(dropdowns)
+//       var i;
+//       for (i = 0; i < dropdowns.length; i++) {
+//         var openDropdown = dropdowns[i];
+//         console.log(openDropdown)
+//         if (openDropdown.style.display = "block") {
+//           openDropdown.style.display = "none";
+//         }
+//       }
+//     }
+//   }
+
+
+function testUpdate(value) {
+    console.log("value")
+    
+}
 
 function updateCheckout(){
     console.log("Handlekurv oppdateres")
@@ -107,3 +137,16 @@ function updateBtn(article_id) {
     document.getElementById(article_id).style.display = "block"
 
 }
+
+// var selectSizes = document.createElement("select")
+    // selectSizes.setAttribute('name', 'selectSize'+articles[i].id)
+    // selectSizes.setAttribute('id', 'selectSize'+articles[i].id)
+    // for (let j = 0; j < articles[i].sizes.length; j++) {
+    //     var option = document.createElement("option")
+    //     option.setAttribute("value", articles[i].sizes[j])
+    //     option.innerHTML = articles[i].sizes[j]
+    //     //option.addEventListener('change', testUpdate)
+    //     selectSizes.appendChild(option)
+    // }
+
+    // selectSizes.addEventListener('change', function() {testUpdate(value)})
