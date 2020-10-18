@@ -7,9 +7,12 @@ const right = document.getElementById("right")
 const articles = [
     {id: 1, name: "Artikkel 1", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["0-3 måneder", "6-12 måneder", "1-2 år"]},
     {id: 2, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"]},
-
+    {id: 3, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"]},
+    {id: 4, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"]},
+    {id: 5, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"]},
 ]
 
+const selectedArticles = []
 
 
 
@@ -59,7 +62,7 @@ for (let i = 0; i < articles.length; i++) {
     // dropdown menu
     for (let j = 0; j < articles[i].sizes.length; j++){
         var option = document.createElement('a')
-        option.addEventListener('click', updateCheckout)
+        option.addEventListener('click', function() {updateCheckout(articles[i].name, articles[i].price, articles[i].sizes[j])})
         option.setAttribute('href', '#')
         option.innerHTML = articles[i].sizes[j]
         options.appendChild(option)
@@ -106,13 +109,14 @@ for (let i = 0; i < articles.length; i++) {
 //   }
 
 
-function testUpdate(value) {
-    console.log("value")
-    
-}
+function updateCheckout(articleName, articlePrice, articleSize){
+    var line = document.createElement("p")
+    var textNode = document.createTextNode(articleName + "\t" + articleSize + "\t" + articlePrice)
 
-function updateCheckout(){
-    console.log("Handlekurv oppdateres")
+    selectedArticles.push({name: articleName, size: articleSize, price: articlePrice})
+    console.log(selectedArticles)
+    line.appendChild(textNode)
+    right.appendChild(line)
 }
 
 function displayDropdown(dropdown_id) {
