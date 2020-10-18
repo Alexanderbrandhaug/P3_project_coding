@@ -31,10 +31,35 @@ img {
     position: absolute;
     top: 45%;
     left: 150px;
+}
+
+h2 {
+    text-align: left;
     
 }
 
-.sizeDropDown {
+.sizeDD {
+    position: absolute;
+    top: 5%;
+    right: 5%
+}
+
+.addToCartBtn {
+    position: absolute;
+    bottom: 5%;
+    right: 5%
+    
+}
+
+.sizeDD, .addToCartBtn {
+    background-color: lightgray;
+}
+
+.addToCartBtn:hover, sizeDD:hover {
+    background-color: white;
+}
+
+/* .sizeDropDown {
     position: absolute;
     top: 10%;
     right: 5px;
@@ -68,16 +93,13 @@ img {
 
 .sizeOptions a:hover {
     background-color: rgb(245, 245, 245);
-}
+} */
 
 
-h2 {
-    text-align: left;
-    
-}
 
 
-.dropbtn {
+
+/* .dropbtn {
     padding: 16px;
 }
 
@@ -98,5 +120,5 @@ h2 {
     color: black;
     text-decoration: none;
     display: block;
-}
+} */
 

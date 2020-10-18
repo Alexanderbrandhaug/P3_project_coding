@@ -15,8 +15,6 @@ const articles = [
 const selectedArticles = []
 
 
-
-
 for (let i = 0; i < articles.length; i++) {
     // Create division where information about the article will be displayed
     var article_division = document.createElement("div")
@@ -41,39 +39,9 @@ for (let i = 0; i < articles.length; i++) {
     var articleImage = document.createElement('img')
     articleImage.setAttribute('src', articles[i].image_loc)
 
-    // Create division for size selection dropdown
-    var sizeDropDown = document.createElement('div')
-    sizeDropDown.setAttribute('class', 'sizeDropDown')
-    sizeDropDown.setAttribute('id', 'sizeDD'+articles[i].id)
-
-    // Button for size selection, will display dropdown menu for sizes
-    var sizeBtn = document.createElement('button')
-    sizeBtn.setAttribute('class', 'sizeBtn')
-    sizeBtn.innerHTML = "Velg størrelse"
-    // When pressed, the dropdown menu will be displayed 
-    sizeBtn.addEventListener('click', function() {updateBtn("options_"+articles[i].id)})
-
-    // Divisions for the possible size choickes
-    var options = document.createElement("div")
-    options.setAttribute('class', 'sizeOptions')
-    options.setAttribute('id', 'options_'+articles[i].id)
-
-    // Iterate through all size options for the article, and make the size available in 
-    // dropdown menu
-    for (let j = 0; j < articles[i].sizes.length; j++){
-        var option = document.createElement('a')
-        option.addEventListener('click', function() {updateCheckout(articles[i].name, articles[i].price, articles[i].sizes[j])})
-        option.setAttribute('href', '#')
-        option.innerHTML = articles[i].sizes[j]
-        options.appendChild(option)
-    }
-
-
-    sizeDropDown.appendChild(sizeBtn)
-    sizeDropDown.appendChild(options)
-
-    
+    // Select size dropdown    
     var sizeDD = document.createElement("select")
+    sizeDD.setAttribute('class', 'sizeDD')
     sizeDD.setAttribute('id', 'sizeDD'+articles[i].id)
     sizeDD.setAttribute('name', 'sizeDD'+articles[i].id)
     sizeDD.addEventListener('change', function() {updateSize(this.value, articles[i].id)} )
@@ -92,14 +60,20 @@ for (let i = 0; i < articles.length; i++) {
         sizeDD.appendChild(option)
     }
 
+    var addToCartBtn = document.createElement("button")
+    addToCartBtn.setAttribute('class', 'addToCartBtn')
+    addToCartBtn.innerHTML = "Legg til i handlekurv"
+    // When pressed, the dropdown menu will be displayed 
+    addToCartBtn.addEventListener('click', function() {addToCart(articles[i].id)})
+
     article_division.appendChild(articleName)
     article_division.appendChild(articlePrice)
     article_division.appendChild(articleDescription)
     article_division.appendChild(articleImage)
     
-    article_division.appendChild(sizeDropDown)
-
+    
     article_division.appendChild(sizeDD)
+    article_division.appendChild(addToCartBtn)
 
 
     left.appendChild(article_division)
@@ -157,6 +131,16 @@ function updateCheckout(articleName, articlePrice, articleSize){
     right.appendChild(line)
 }
 
+function addToCart(articleId) {
+    var line = document.createElement("p")
+    var textNode = document.createTextNode(articles[articleId].name + "\t" + articles[articleId].selectedSize + "\t" + articles[articleId].price)
+
+    selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price})
+    console.log(selectedArticles)
+    line.appendChild(textNode)
+    right.appendChild(line)
+}
+
 function displayDropdown(dropdown_id) {
     var dropdown = document.getElementById(dropdown_id)
     dropdown.style.display = "block";
@@ -192,3 +176,39 @@ function updateBtn(article_id) {
     // }
 
     // selectSizes.addEventListener('change', function() {testUpdate(value)})
+
+
+
+// GAMMEL DROPDOWN FOR STØRRELSE
+// Create division for size selection dropdown
+// var sizeDropDown = document.createElement('div')
+// sizeDropDown.setAttribute('class', 'sizeDropDown')
+// sizeDropDown.setAttribute('id', 'sizeDD'+articles[i].id)
+
+// // Button for size selection, will display dropdown menu for sizes
+// var sizeBtn = document.createElement('button')
+// sizeBtn.setAttribute('class', 'sizeBtn')
+// sizeBtn.innerHTML = "Velg størrelse"
+// // When pressed, the dropdown menu will be displayed 
+// sizeBtn.addEventListener('click', function() {updateBtn("options_"+articles[i].id)})
+
+// // Divisions for the possible size choickes
+// var options = document.createElement("div")
+// options.setAttribute('class', 'sizeOptions')
+// options.setAttribute('id', 'options_'+articles[i].id)
+
+// // Iterate through all size options for the article, and make the size available in 
+// // dropdown menu
+// for (let j = 0; j < articles[i].sizes.length; j++){
+//     var option = document.createElement('a')
+//     option.addEventListener('click', function() {updateCheckout(articles[i].name, articles[i].price, articles[i].sizes[j])})
+//     option.setAttribute('href', '#')
+//     option.innerHTML = articles[i].sizes[j]
+//     options.appendChild(option)
+// }
+
+
+// sizeDropDown.appendChild(sizeBtn)
+// sizeDropDown.appendChild(options)
+
+// article_division.appendChild(sizeDropDown)
