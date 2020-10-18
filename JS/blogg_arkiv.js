@@ -6,7 +6,7 @@ years.forEach(make_list);
 function make_list(x){
     let node = document.createElement("li");
     let button = document.createElement("button")
-    button.innerText = x;
+    button.innerHTML = "<div class='normal'>" + ">" + "</div>" + " " + x;
     button.id = x;
     button.type = "button";
     button.onclick = function() {create_sub_list(this)};
@@ -34,6 +34,8 @@ function create_sub_list(x) {
 
         x.name = "extended";
         addHeading();
+        rotate(x)
+
     }
     else {
         x.removeChild(x.lastChild);
@@ -69,5 +71,10 @@ function addHeading() {
 
     }
 
-    console.log(dates)
+    /*console.log(dates)*/
+}
+
+function rotate(x) {
+    const div = x.querySelector('div');
+    div.className += " rotating";
 }

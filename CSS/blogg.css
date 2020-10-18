@@ -37,17 +37,19 @@ p {
 }
 
 #arkiv_boks {
-    text-align: left;
+    text-align: center;
     width: 50%;
-    margin-left: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 #arkiv_liste > * {
+    text-align: left;
     font-weight: bold;
 }
 
 #arkiv_liste > li {
-    list-style: ">";
+    list-style: none;
 }
 
 #arkiv_liste > li > button {
@@ -60,4 +62,14 @@ p {
 
 #arkiv_liste > li > button:hover {
     cursor: pointer;
+}
+
+div.normal {
+    animation-delay: -0.3s;
+    transition: all 0.5s;
+    transform: rotate(0deg);
+}
+
+div.rotating {
+    transform: rotate(90deg);
 }
