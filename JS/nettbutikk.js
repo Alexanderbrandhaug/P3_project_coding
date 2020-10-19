@@ -88,7 +88,9 @@ for (let i = 0; i < articles.length; i++) {
     // Add to cart button
     var addToCartBtn = document.createElement("button")
     addToCartBtn.setAttribute('class', 'addToCartBtn')
+    addToCartBtn.setAttribute('id', 'addToCartBtn'+articles[i].id)
     addToCartBtn.innerHTML = "Legg til i handlekurv"
+    addToCartBtn.setAttribute('disabled', function() {if (articles[i].selectedSize=="") {true} else if (articles[i].number=="") {true} else {false}})
     addToCartBtn.addEventListener('click', function() {addToCart(articles[i].id)})
 
     article_division.appendChild(articleName)
@@ -105,25 +107,33 @@ for (let i = 0; i < articles.length; i++) {
 }
 
 function updateSize(value, articleId) {
-    if (value == "") {
+    if (value == "" || value == "Velg størrelse" ) {
         articles[articleId].selectedSize = ""
-    } else if (value == "Velg størrelse") {
-        articles[articleId].selectedSize = ""
+        document.getElementById('addToCartBtn'+articleId).disabled = true
     } else {
         articles[articleId].selectedSize = value
+
+        if (articles[articleId].number != "" && articles[articleId].number != "Velg antall") {
+            document.getElementById('addToCartBtn'+articleId).disabled = false
+        }
     }
+
 }
 
 function updateNumber(value, articleId) {
-    if (value == "") {
+    if (value == "" || value == "Velg antall") {
         articles[articleId].number = ""
-    } else if (value == "Velg antall") {
-        articles[articleId].number = ""
+        document.getElementById('addToCartBtn'+articleId).disabled = true
     } else {
         articles[articleId].number = value
+
+        console.log(articles[articleId])
+
+        if (articles[articleId].selectedSize != "" && articles[articleId].selectedSize != "Velg størrelse") {
+            document.getElementById('addToCartBtn'+articleId).disabled = false
+        }
     }
 
-    console.log(articles[articleId])
 }
 
 
