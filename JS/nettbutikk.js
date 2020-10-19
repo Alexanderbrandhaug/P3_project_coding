@@ -137,16 +137,6 @@ function updateNumber(value, articleId) {
 
 }
 
-
-function updateCheckout(articleName, articlePrice, articleSize){
-    var line = document.createElement("p")
-    var textNode = document.createTextNode(articleName + "\t" + articleSize + "\t" + articlePrice)
-
-    selectedArticles.push({name: articleName, size: articleSize, price: articlePrice})
-    line.appendChild(textNode)
-    right.appendChild(line)
-}
-
 function addToCart(articleId) {
     isElementsAddedToCart = true
 
