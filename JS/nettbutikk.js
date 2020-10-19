@@ -3,6 +3,7 @@
 const left = document.getElementById("left")
 const right = document.getElementById("right")
 const summary = document.getElementById("summary")
+const cartTable = document.getElementById("cartTable")
 
 
 const articles = [
@@ -14,6 +15,8 @@ const articles = [
 ]
 
 const selectedArticles = []
+
+var isElementsAddedToCart = false
 
 
 for (let i = 0; i < articles.length; i++) {
@@ -106,6 +109,15 @@ for (let i = 0; i < articles.length; i++) {
     left.appendChild(article_division)
 }
 
+if (selectedArticles.length == 0) {
+    var noArticlesInCartText = document.createElement("P")
+    noArticlesInCartText.setAttribute('id', 'noArticlesInCart')
+    noArticlesInCartText.innerHTML = "Ingen artikler i handlekurven enda"
+
+    summary.appendChild(noArticlesInCartText)
+
+}
+
 function updateSize(value, articleId) {
     if (value == "" || value == "Velg størrelse" ) {
         articles[articleId].selectedSize = ""
@@ -127,8 +139,6 @@ function updateNumber(value, articleId) {
     } else {
         articles[articleId].number = value
 
-        console.log(articles[articleId])
-
         if (articles[articleId].selectedSize != "" && articles[articleId].selectedSize != "Velg størrelse") {
             document.getElementById('addToCartBtn'+articleId).disabled = false
         }
@@ -142,42 +152,55 @@ function updateCheckout(articleName, articlePrice, articleSize){
     var textNode = document.createTextNode(articleName + "\t" + articleSize + "\t" + articlePrice)
 
     selectedArticles.push({name: articleName, size: articleSize, price: articlePrice})
-    console.log(selectedArticles)
     line.appendChild(textNode)
     right.appendChild(line)
 }
 
 function addToCart(articleId) {
-    var line = document.createElement("p")
-    
+    isElementsAddedToCart = true
+
     var article = articles[articleId]
-    var textNode = document.createTextNode(article.name + "\t" + article.number + "\t" + article.selectedSize + "\t" + articles[articleId].price)
+
+    var row = document.createElement("TR")
+
+    var nameCell = document.createElement("TD")
+    nameCell.innerHTML= article.name
+
+    var numberCell = document.createElement("TD")
+    numberCell.innerHTML = article.number + " stk"
+
+    var sizeCell = document.createElement("TD")
+    sizeCell.innerHTML = article.selectedSize
+
+    var priceCell = document.createElement("TD")
+    priceCell.innerHTML = article.price
+ 
+    row.appendChild(nameCell)
+    row.appendChild(numberCell)
+    row.appendChild(sizeCell)
+    row.appendChild(priceCell)
+
+    cartTable.appendChild(row)
 
     selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price})
-    console.log(selectedArticles)
-    line.appendChild(textNode)
-    summary.appendChild(line)
+
+    if (selectedArticles.length == 1) {addCheckOutBtn()}
 }
 
-function displayDropdown(dropdown_id) {
-    var dropdown = document.getElementById(dropdown_id)
-    dropdown.style.display = "block";
+function addCheckOutBtn() {
+    
+    var checkOutBtn = document.createElement("BUTTON")
+    checkOutBtn.setAttribute('id', 'checkOutBtn')
+    checkOutBtn.innerHTML = "Bestill"
+    checkOutBtn.addEventListener('click', checkOut)
+
+    document.getElementById('noArticlesInCart').innerHTML = ""
+
+   
+    summary.appendChild(checkOutBtn)
+
 }
 
-function selectSize(size) {
-    var line = document.createElement("P")
-    var textNode = document.createTextNode(size)
-
-    line.appendChild(textNode)
-
-    right.appendChild(line)
-
-}
-
-function updateBtn(article_id) {
-    console.log("Button pressed")
-    console.log(article_id)
-
-    document.getElementById(article_id).style.display = "block"
-
+function checkOut() {
+    alert("Bestilt")
 }
