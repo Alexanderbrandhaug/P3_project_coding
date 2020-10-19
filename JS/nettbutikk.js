@@ -16,8 +16,6 @@ const articles = [
 
 const selectedArticles = []
 
-var isElementsAddedToCart = false
-
 
 for (let i = 0; i < articles.length; i++) {
     // Create division where information about the article will be displayed
@@ -138,7 +136,6 @@ function updateNumber(value, articleId) {
 }
 
 function addToCart(articleId) {
-    isElementsAddedToCart = true
 
     var article = articles[articleId]
 
@@ -165,10 +162,14 @@ function addToCart(articleId) {
 
     selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price})
 
-    if (selectedArticles.length == 1) {addCheckOutBtn()}
+    if (selectedArticles.length == 1) {
+        addCheckOutBtnAndTotalPrice()
+    } else {
+        updateTotalPrice()
+    } 
 }
 
-function addCheckOutBtn() {
+function addCheckOutBtnAndTotalPrice() {
     
     var checkOutBtn = document.createElement("BUTTON")
     checkOutBtn.setAttribute('id', 'checkOutBtn')
@@ -177,11 +178,54 @@ function addCheckOutBtn() {
 
     document.getElementById('noArticlesInCart').innerHTML = ""
 
-   
     summary.appendChild(checkOutBtn)
+
+    var totalPriceLine = document.createElement("TR")
+    totalPriceLine.setAttribute('id', 'totalPriceLine')
+
+    totalPriceLine.appendChild(document.createElement("TD"))
+    totalPriceLine.appendChild(document.createElement("TD"))
+    totalPriceLine.appendChild(document.createElement("TD"))
+
+    var totalPrice = document.createElement("TD")
+    totalPrice.setAttribute('id', "totalPrice")
+    totalPrice.innerHTML = selectedArticles[0].price
+
+    totalPriceLine.appendChild(totalPrice)
+
+    cartTable.appendChild(totalPriceLine)
 
 }
 
 function checkOut() {
     alert("Bestilt")
+}
+
+function updateTotalPrice() {
+    var oldtotalPriceLine = document.getElementById('totalPriceLine')
+    oldtotalPriceLine.remove()
+
+    var newPrice = 0 ;
+    for (var i = 0; i < selectedArticles.length; i++) {
+
+        var removeKr = selectedArticles[i].price.slice(0, -3)
+        newPrice += parseInt(removeKr)
+    }
+
+    var newTotalPriceLine = document.createElement("TR")
+    newTotalPriceLine.setAttribute('id', 'totalPriceLine')
+
+    newTotalPriceLine.appendChild(document.createElement("TD"))
+    newTotalPriceLine.appendChild(document.createElement("TD"))
+    newTotalPriceLine.appendChild(document.createElement("TD"))
+
+    var totalPrice = document.createElement("TD")
+    totalPrice.setAttribute('id', "totalPrice")
+    totalPrice.innerHTML =  newPrice + "kr"
+
+    newTotalPriceLine.appendChild(totalPrice)
+
+    cartTable.appendChild(newTotalPriceLine)
+    //totalPrice.innerHTML = newPrice + " kr"
+    
 }
