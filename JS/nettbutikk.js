@@ -151,7 +151,8 @@ function addToCart(articleId) {
     sizeCell.innerHTML = article.selectedSize
 
     var priceCell = document.createElement("TD")
-    priceCell.innerHTML = article.price
+    var pricePrItem = parseInt(article.price.slice(0,-3))
+    priceCell.innerHTML = article.number*pricePrItem + " kr"
  
     row.appendChild(nameCell)
     row.appendChild(numberCell)
@@ -160,13 +161,14 @@ function addToCart(articleId) {
 
     cartTable.appendChild(row)
 
-    selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price})
+    selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price, number: articles[articleId].number})
 
     if (selectedArticles.length == 1) {
         addCheckOutBtnAndTotalPrice()
-    } else {
-        updateTotalPrice()
     } 
+    
+    updateTotalPrice()
+    
 }
 
 function addCheckOutBtnAndTotalPrice() {
@@ -182,17 +184,6 @@ function addCheckOutBtnAndTotalPrice() {
 
     var totalPriceLine = document.createElement("TR")
     totalPriceLine.setAttribute('id', 'totalPriceLine')
-
-    totalPriceLine.appendChild(document.createElement("TD"))
-    totalPriceLine.appendChild(document.createElement("TD"))
-    totalPriceLine.appendChild(document.createElement("TD"))
-
-    var totalPrice = document.createElement("TD")
-    totalPrice.setAttribute('id', "totalPrice")
-    totalPrice.innerHTML = selectedArticles[0].price
-
-    totalPriceLine.appendChild(totalPrice)
-
     cartTable.appendChild(totalPriceLine)
 
 }
@@ -208,8 +199,11 @@ function updateTotalPrice() {
     var newPrice = 0 ;
     for (var i = 0; i < selectedArticles.length; i++) {
 
-        var removeKr = selectedArticles[i].price.slice(0, -3)
-        newPrice += parseInt(removeKr)
+        // Remove " kr" from price string, then makes int out of the price
+        var pricePrItem = parseInt(selectedArticles[i].price.slice(0, -3))
+
+        var numberOfItems = parseInt(selectedArticles[i].number)
+        newPrice += numberOfItems*pricePrItem
     }
 
     var newTotalPriceLine = document.createElement("TR")
