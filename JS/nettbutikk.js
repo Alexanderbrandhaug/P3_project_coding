@@ -109,15 +109,6 @@ for (let i = 0; i < articles.length; i++) {
     left.appendChild(article_division)
 }
 
-if (selectedArticles.length == 0) {
-    var noArticlesInCartText = document.createElement("P")
-    noArticlesInCartText.setAttribute('id', 'noArticlesInCart')
-    noArticlesInCartText.innerHTML = "Ingen artikler i handlekurven enda"
-
-    summary.appendChild(noArticlesInCartText)
-
-}
-
 function updateSize(value, articleId) {
     if (value == "" || value == "Velg størrelse" ) {
         articles[articleId].selectedSize = ""
