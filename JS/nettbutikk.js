@@ -152,6 +152,7 @@ function addToCart(articleId) {
 
     var priceCell = document.createElement("TD")
     var pricePrItem = parseInt(article.price.slice(0,-3))
+    priceCell.setAttribute('class', 'priceCell')
     priceCell.innerHTML = article.number*pricePrItem + " kr"
  
     row.appendChild(nameCell)

@@ -72,6 +72,10 @@ h2 {
     margin-right: auto;
 }
 
+.priceCell {
+    text-align: right;
+}
+
 #summary {
     border-style: solid;
     border-color: black;
@@ -95,5 +99,6 @@ h2 {
 
 #totalPrice {
     font-weight: bold;
+    text-align: right;
 }
 
