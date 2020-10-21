@@ -5,7 +5,7 @@
 body {
     min-height: 100%;
     margin: 50px 0 0 0;
-    overflow: hidden;   
+    overflow: hidden;
     height: 100vh;
 }
 
@@ -87,20 +87,10 @@ body {
 }
 
 #right {
-    /*width: 50%;
+    width: 50%;
     min-height: 100%;
     position: absolute;
     right: 0;
     background-color: #e7e5e6;
-    margin-bottom: 50px;*/
-    display: flex;
-    position: sticky;
-    top: 0;
-    left: 50%;
-    right: 0;
-    min-width: 50%;
-    /*min-height: 100%;*/
-    background-color: #e7e5e6;
-    overflow-y: scroll;
-    margin-bottom: 0;
+    margin-bottom: 50px;
 }
