@@ -62,7 +62,7 @@ h2 {
     min-width: 150px;
 }
 
-.addToCartBtn:hover{
+.addToCartBtn:hover:enabled{
     background-color: white;
 }
 
