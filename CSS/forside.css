@@ -1,6 +1,5 @@
 body, html {
     margin: 0px;
-    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .backimg {
@@ -9,13 +8,64 @@ body, html {
     background-image: url("../images/forside.jpg");
     background-repeat:no-repeat;
     min-height: 100vh;
-    animation: fade;
-    animation-duration: 0.5s;
+
     }
 
-@keyframes fade{
-    0% {background-position: 100% 50%;};
-    100%{background-position: 50% 50%;}
+#brightDiv{
+    position: absolute;
+    width:100%;
+    height:100%;
+    opacity:0%;
+    background-color:white;
+    animation-duration: 4s;  
 }
+
+#navbar{
+    animation-duration:4s;
+    top:-50px;
+}
+
+#footer{
+    animation-duration:4s;
+    bottom:-50px;
+}
+
+#welcomeText{
+    font-size: 17px;
+    width:200px;
+    position: fixed;
+    left:-100%;
+    top:20%;
+    animation-duration: 6s;
+
+}
+
+@keyframes brightAnimation{
+    0%{opacity: 100%;}
+    100%{opacity:0%;}
+}
+
+@keyframes navbarFadeIn{
+    0%{top:-50px;}
+    75%{top:-50px;}
+    100%{top:0px;}
+}
+
+@keyframes footerFadeIn{
+    0%{bottom:-50px;}
+    75%{bottom:-50px;}
+    100%{bottom:0px;}
+}
+
+@keyframes textFadeIn{
+    0%{left:-100%;}
+    75%{left:-100%;}
+    82.5%{left:5%;}
+    100%{left:10%;}
+}
+
+
+
+
 
 
