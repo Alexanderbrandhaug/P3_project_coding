@@ -19,51 +19,15 @@
 
     <div id="content">
         <div id="left">
-
-
-            <div class="article">
-                <div class = "dropdown">
-                    <button onclick="displayDropdown('dd_article1')" class="dropbtn">Legg til vare</button>
-                    <div id="dd_article1" class="dropdown-options">
-                        <a href="#" onclick="selectSize('0-3 måneder')">0-3 måneder</a>
-                        <a href="#" onclick="selectSize('3-6 måneder')">3-6 måneder</a>
-                        <a href="#" onclick="selectSize('6-12 måneder')">6-12 måneder</a>
-                        <a href="#" onclick="selectSize('1-2 år')">1-2 år</a>
-                        <a href="#" onclick="selectSize('2-4 år')">2-4 år</a>
-                        <a href="#" onclick="selectSize('5-6 år')">5-6 år</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <p class="article-name">Artikkel 2</p>
-                <p class="article-price">Pris: 849,-</p>
-                <p class="article-description">Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse</p>
-                
-                <button onclick="displayDropdown()" class="sizeBtn">Legg til vare</button>
-                <img src="images/strikkp1.jpg">
-            </div>
-
-            <div class="article">
-                <p class="article-name">Artikkel 3</p>
-                <p class="article-price">Pris: 849,-</p>
-                <p class="article-description">Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse</p>
-                
-                <button onclick="displayDropdown()" class="sizeBtn">Legg til vare</button>
-                <img src="images/strikkp1.jpg">
-            </div>
-
-            <div class="article">
-                <p class="article-name">Artikkel 4</p>
-                <p class="article-price">Pris: 849,-</p>
-                <p class="article-description">Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse</p>
-                
-                <button onclick="displayDropdown()" class="sizeBtn">Legg til vare</button>
-                <img src="images/strikkp1.jpg">
-            </div>
         </div>
+        
         <div id="right">
-            <ul id="summary"></ul>
+            
+            <div id="summary">
+                <p id="summaryTitle">Handlekurv</p>
+                <p id="noArticlesInCart">Det er ingen artikler i handlekurven</p>
+                <table id="cartTable"></table>
+            </div>
         </div>
 
     </div>
