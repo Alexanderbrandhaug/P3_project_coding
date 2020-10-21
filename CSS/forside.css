@@ -1,5 +1,6 @@
 body, html {
     margin: 0px;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .backimg {
@@ -8,4 +9,13 @@ body, html {
     background-image: url("../images/forside.jpg");
     background-repeat:no-repeat;
     min-height: 100vh;
+    animation: fade;
+    animation-duration: 0.5s;
     }
+
+@keyframes fade{
+    0% {background-position: 100% 50%;};
+    100%{background-position: 50% 50%;}
+}
+
+
