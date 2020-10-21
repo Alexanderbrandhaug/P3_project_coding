@@ -1,63 +1,16 @@
+.blogg_content {
+
+    text-align: center;
+    border: 2px solid black;
+    margin: 10px;
+
+
+}
+
 h1 {
-    font-size: 35px;
+    font-size: 25;
 }
 
 p {
-    font-size: 17px;
-}
-
-.blogg_content {
-    position: relative;
-    color: white;
-    text-align: center;
-    margin: 1vh 3vw;
-    width: 44vw; /* 50% of view width (vw) - 3%*2 of vw (from margin) */
-}
-
-.blogg_content > p:last-child {
-    padding: 0.5vh;
-}
-
-.blogg_content > *:not(img) {
-    width: 90%;
-    margin: 1vh auto;
-}
-
-.blogg_content > img {
-    max-width: 50%;
-    margin: 0 auto 1vh;
-}
-
-.blogg_content::after {
-    content: "";
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    border-bottom: 3px solid black;
-}
-
-#arkiv_boks {
-    text-align: left;
-    width: 50%;
-    margin-left: 50%;
-}
-
-#arkiv_liste > * {
-    font-weight: bold;
-}
-
-#arkiv_liste > li {
-    list-style: ">";
-}
-
-#arkiv_liste > li > button {
-    font-size: 17px; /*Same as p*/
-    font-weight: bold;
-    border: none;
-    outline: none;
-    background-color: inherit;
-}
-
-#arkiv_liste > li > button:hover {
-    cursor: pointer;
+    font-size: 10pt;
 }

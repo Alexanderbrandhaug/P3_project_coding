@@ -2,9 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Nettbutikk</title>
+    <title>General layout</title>
     <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="CSS/nettbutikk.css">
 </head>
 
 <body>
@@ -19,68 +18,18 @@
 
     <div id="content">
         <div id="left">
-
-
-            <div class="article">
-                <div class = "dropdown">
-                    <button onclick="displayDropdown('dd_article1')" class="dropbtn">Legg til vare</button>
-                    <div id="dd_article1" class="dropdown-options">
-                        <a href="#" onclick="selectSize('0-3 måneder')">0-3 måneder</a>
-                        <a href="#" onclick="selectSize('3-6 måneder')">3-6 måneder</a>
-                        <a href="#" onclick="selectSize('6-12 måneder')">6-12 måneder</a>
-                        <a href="#" onclick="selectSize('1-2 år')">1-2 år</a>
-                        <a href="#" onclick="selectSize('2-4 år')">2-4 år</a>
-                        <a href="#" onclick="selectSize('5-6 år')">5-6 år</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <p class="article-name">Artikkel 2</p>
-                <p class="article-price">Pris: 849,-</p>
-                <p class="article-description">Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse</p>
-                
-                <button onclick="displayDropdown()" class="sizeBtn">Legg til vare</button>
-                <img src="images/strikkp1.jpg">
-            </div>
-
-            <div class="article">
-                <p class="article-name">Artikkel 3</p>
-                <p class="article-price">Pris: 849,-</p>
-                <p class="article-description">Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse</p>
-                
-                <button onclick="displayDropdown()" class="sizeBtn">Legg til vare</button>
-                <img src="images/strikkp1.jpg">
-            </div>
-
-            <div class="article">
-                <p class="article-name">Artikkel 4</p>
-                <p class="article-price">Pris: 849,-</p>
-                <p class="article-description">Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse Beskrivelse</p>
-                
-                <button onclick="displayDropdown()" class="sizeBtn">Legg til vare</button>
-                <img src="images/strikkp1.jpg">
-            </div>
+            id = "left"
         </div>
         <div id="right">
-            <ul id="summary"></ul>
+            id = "right"
         </div>
 
     </div>
 
     <div id="footer">
-        <p id="footerText">© 2020</p>
-        <div class="iconDiv">
-            <img src="images/contact.png" class="icon" id="contact" alt="Contact icon">
-            <a href="https://instagram.com/strikktilelea?igshid=1qrrqqmczzgrx" target="_blank">
-                <img src="images/instalogo.png" class="icon" id="insta" alt="Instagram icon">
-            </a>
-        </div>
     </div>
+
     <script src="JS/navbar_footer.js"></script>
-
-    <script src="JS/nettbutikk.js"></script>
-
 
 </body>
 
