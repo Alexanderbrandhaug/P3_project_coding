@@ -1,21 +1,26 @@
-// Get list element from nettbutikk.html
+// NETTBUTIKK FUNCTIONALITY
 
+
+// Access main components from nettbutikk.html
 const left = document.getElementById("left")
 const right = document.getElementById("right")
 const summary = document.getElementById("summary")
 const cartTable = document.getElementById("cartTable")
 
-
+// List of JSON-objects, containing information about each article
 const articles = [
     {id: 0, name: "Artikkel 1", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["0-3 måneder", "6-12 måneder", "1-2 år"], selectedSize: "", number: ""},
-    {id: 1, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
-    {id: 2, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
-    {id: 3, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
-    {id: 4, name: "Artikkel 2", price: "849 kr",description: "Beskrivelse her",image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
+    {id: 1, name: "Artikkel 2", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["1-2 år", "3-4 år", "5-6 år"], selectedSize: "", number: ""},
+    {id: 2, name: "Artikkel 2", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
+    {id: 3, name: "Artikkel 2", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
+    {id: 4, name: "Artikkel 2", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
 ]
 
+// Articles in shopping cart will be added to this list
 const selectedArticles = []
 
+
+// GENERATION OF ELEMENTS FOR EACH ARTICLE
 
 for (let i = 0; i < articles.length; i++) {
     // Create division where information about the article will be displayed
@@ -98,7 +103,7 @@ for (let i = 0; i < articles.length; i++) {
     defaultNumberOption.text = "Velg antall"
     numberDD.appendChild(defaultNumberOption)
 
-    // Possible to choose max 5 items
+    // Possible to choose max 5 items (options in number drop down)
     for (let j = 1; j < 6; j++) {
         var numberOption = document.createElement("option")
         numberOption.setAttribute('value', j.toString())
@@ -119,7 +124,6 @@ for (let i = 0; i < articles.length; i++) {
     articleDivision.appendChild(articleDescription)
     articleDivision.appendChild(articleImage)
     articleDivision.appendChild(modalDivision)
-    
     articleDivision.appendChild(sizeDD)
     articleDivision.appendChild(numberDD)
     articleDivision.appendChild(addToCartBtn)
@@ -257,5 +261,4 @@ function displayPicture(articleId) {
 function closeModal(articleId) {
     var modalDivision = document.getElementById('modalDivision'+articleId)
     modalDivision.style.display = "none";
-    //var closeBtn = document.getElementById('closeModalBtn'+articleId)
 }
