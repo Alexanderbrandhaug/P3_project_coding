@@ -19,8 +19,8 @@ const selectedArticles = []
 
 for (let i = 0; i < articles.length; i++) {
     // Create division where information about the article will be displayed
-    var article_division = document.createElement("div")
-    article_division.setAttribute('class', 'article')
+    var articleDivision = document.createElement("div")
+    articleDivision.setAttribute('class', 'article')
 
     // Article name information
     var articleName = document.createElement('p')
@@ -40,7 +40,27 @@ for (let i = 0; i < articles.length; i++) {
     // Article image
     var articleImage = document.createElement('img')
     articleImage.setAttribute('src', articles[i].image_loc)
+    articleImage.setAttribute('alt', 'Article image')
     articleImage.setAttribute('class', 'article-image')
+    articleImage.setAttribute('id', 'articleImage'+articles[i].id)
+    articleImage.addEventListener('click', function() {displayPicture(articles[i].id)})
+
+    // Image modal (pop-up when click on article image)
+    var modalDivision = document.createElement('div')
+    modalDivision.setAttribute('class', 'imageModal')
+    modalDivision.setAttribute('id', 'modalDivision'+articles[i].id)
+    var modalImage = document.createElement('img')
+    modalImage.setAttribute('class', 'modalImage-content')
+    modalImage.setAttribute('id', 'imageModal'+articles[i].id)
+    var closeModalBtn = document.createElement('span')
+    closeModalBtn.setAttribute('class', 'close-modal')
+    closeModalBtn.setAttribute('id', 'closeModalBtn'+articles[i].id)
+    closeModalBtn.innerHTML = '&times;'
+    closeModalBtn.addEventListener('click', function () {closeModal(articles[i].id)})
+    
+    modalDivision.appendChild(modalImage)
+    modalDivision.appendChild(closeModalBtn)
+    
 
     // Select size dropdown    
     var sizeDD = document.createElement("select")
@@ -94,17 +114,18 @@ for (let i = 0; i < articles.length; i++) {
     addToCartBtn.setAttribute('disabled', function() {if (articles[i].selectedSize=="") {true} else if (articles[i].number=="") {true} else {false}})
     addToCartBtn.addEventListener('click', function() {addToCart(articles[i].id)})
 
-    article_division.appendChild(articleName)
-    article_division.appendChild(articlePrice)
-    article_division.appendChild(articleDescription)
-    article_division.appendChild(articleImage)
+    articleDivision.appendChild(articleName)
+    articleDivision.appendChild(articlePrice)
+    articleDivision.appendChild(articleDescription)
+    articleDivision.appendChild(articleImage)
+    articleDivision.appendChild(modalDivision)
     
-    article_division.appendChild(sizeDD)
-    article_division.appendChild(numberDD)
-    article_division.appendChild(addToCartBtn)
+    articleDivision.appendChild(sizeDD)
+    articleDivision.appendChild(numberDD)
+    articleDivision.appendChild(addToCartBtn)
 
 
-    left.appendChild(article_division)
+    left.appendChild(articleDivision)
 }
 
 function updateSize(value, articleId) {
@@ -221,6 +242,20 @@ function updateTotalPrice() {
     newTotalPriceLine.appendChild(totalPrice)
 
     cartTable.appendChild(newTotalPriceLine)
-    //totalPrice.innerHTML = newPrice + " kr"
     
+}
+
+function displayPicture(articleId) {
+    var modalDivision = document.getElementById('modalDivision'+articleId)
+    modalDivision.style.display = "block"
+    
+
+    var modalImage = document.getElementById('imageModal'+articleId)
+    modalImage.src = articles[articleId].image_loc
+}
+
+function closeModal(articleId) {
+    var modalDivision = document.getElementById('modalDivision'+articleId)
+    modalDivision.style.display = "none";
+    //var closeBtn = document.getElementById('closeModalBtn'+articleId)
 }
