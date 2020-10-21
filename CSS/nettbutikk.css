@@ -3,6 +3,7 @@
     margin: 5px;
     position: relative;
     min-height: 180px;
+    color: white;
 }
 .article-image {
     position: absolute;
