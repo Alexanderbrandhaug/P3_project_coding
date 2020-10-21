@@ -1,31 +1,74 @@
+
+
 *{
-    
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 html, body {
     min-height: 100%;
-    margin: 0;
+    margin: 50px 0 0 0;
 }
 
-#navbar, #footer {
-    width: 100%;
-    height: 40px;
-    background-color: black;
-    color: white;
-    text-align: center; 
+#navbar, #footer{
+    box-sizing:border-box;
+    width:100%;
+    height:50px;
+    padding-left:20px;
+    padding-right:20px;
+    background-color:rgba(0, 0, 0, 0.75);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 #navbar {
-    font-size: 20pt;
+    font-size:25px;
+    position:fixed;
+    top:0;
+    z-index:9
+
+    }
+
+.navpage {
+    position: relative;
+    color:white;
+    text-decoration:none;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
 }
 
-#footer {
+.whiteLine{
+    width:40px;
+    height:2px;
+    background-color:white;
     position: absolute;
+    top:-2px;
+}
+
+
+#footer {
+    color: white;
+    text-align: center;
+    position: fixed;
     bottom: 0;
     left: 0;
     font-size: 10pt;
 }
+
+.icon{
+    width:auto;
+    height:35px;
+    z-index:10;
+}
+
+.iconDiv{
+    width:90px;
+    display:flex;
+    justify-content: space-between;
+}
+
+
 
 #content {
     width: 100%;
@@ -38,9 +81,9 @@ html, body {
     min-height: 100%;
     position: absolute;
     left: 0;
-    top: 0;
-    background-color: darkgray;
-    
+    top: -50px;
+    background-color: #737373;
+
 }
 
 #right {
@@ -48,7 +91,21 @@ html, body {
     min-height: 100%;
     position: absolute;
     right: 0;
-    top: 0;
-    background-color: lightgray;
-    
+    top: -50px;
+    background-color: #e7e5e6;
+
+}
+#instalogo{
+  padding-right: 20px;
+
+}
+#emailicon{
+  padding: 0;
+  border-style: none;
+  background-color:rgba(0, 0, 0, 0.10);
+
+}
+
+form{
+  display: none;
 }
