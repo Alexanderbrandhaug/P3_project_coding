@@ -1,0 +1,157 @@
+.article {
+    border-bottom: 2px solid black;
+    margin: 5px;
+    position: relative;
+    min-height: 180px;
+    color: white;
+}
+.article-image {
+    position: absolute;
+    top: 10%;
+    left: 5px;
+    height: 80%;  
+    cursor: pointer;  
+}
+
+.article-image:hover {
+    opacity: 0.7;
+}
+
+.modalImage-content {
+    margin: auto;
+    display: block;
+    height: 70%;
+}
+
+.modalCaption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.modalImage-content, .modalCaption {
+    animation-name: zoom;
+    animation-duration: 0.5s;
+}
+
+/*When image pop up, it is with an animation (zoom)*/
+@keyframes zoom {
+    from {transform: scale(0,0)}
+    to {transform: scale(1)}
+}
+
+.close-modal {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 60px;
+
+}
+
+.article-name {
+    font-size: 14pt;
+    position: absolute;
+    top: 10%;
+    left: 150px;
+}
+
+.article-price {
+    font-size: 10pt;
+    position: absolute;
+    top: 25%;
+    left: 150px;
+}
+
+.article-description {
+    font-size: 10pt;
+    max-width: 40%;
+    position: absolute;
+    top: 45%;
+    left: 150px;
+}
+
+.sizeDD {
+    position: absolute;
+    bottom: 35%;
+    right: 5%
+}
+
+.numberDD {
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+}
+
+.addToCartBtn {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+.sizeDD, .numberDD, .addToCartBtn, #checkOutBtn {
+    background-color: lightgray;
+    min-width: 150px;
+}
+
+.addToCartBtn:hover:enabled {
+    background-color: white;
+}
+
+.addToCartBtn:disabled {
+    color: rgba(0,0,0,0.6)
+}
+
+.imageModal {
+    display: none; /* pop-up is not shown until image is clicked on*/
+    position: fixed;
+    z-index: 1; /* at the front*/
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0); /* fallback */
+    background-color: rgba(0,0,0,0.9); 
+
+}
+
+#cartTable {
+    min-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.priceCell {
+    text-align: right;
+}
+
+#summary {
+    border-style: solid;
+    border-color: black;
+    margin: 20px;
+    min-height: 100%;
+    text-align: center;
+}
+
+#summaryTitle {
+    font-size: 20pt;
+}
+
+#checkOutBtn {
+    width: 80%;
+    margin: 5px;
+}
+
+#checkOutBtn:hover {
+    background-color: white;
+}
+
+#totalPrice {
+    font-weight: bold;
+    text-align: right;
+}
