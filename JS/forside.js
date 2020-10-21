@@ -1,3 +1,5 @@
+// Displays front page animation for first time visits
+
 if (!localStorage.isFirstVisit) {
     localStorage.isFirstVisit = true;
 } else if (localStorage.isFirstVisit == 'true') {
@@ -21,6 +23,7 @@ if (localStorage.isFirstVisit == 'true') {
 
     footer.style.animationName = "footerFadeIn"
     footer.style.bottom = "0px"
+
 }
 else {
     welcomeTxt.style.left = "10%"
