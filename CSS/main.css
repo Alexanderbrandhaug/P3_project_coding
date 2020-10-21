@@ -112,6 +112,10 @@ body {
 
 }
 
+#footerText {
+    font-size: 10pt;
+}
+
 form{
   display: none;
 }
