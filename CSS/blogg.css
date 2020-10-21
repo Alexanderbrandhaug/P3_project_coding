@@ -6,11 +6,50 @@ p {
     font-size: 17px;
 }
 
+body {
+    background-color: #737373;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+}
+
+#right {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 50%;
+    right: 0;
+    min-width: 50%;
+    /*min-height: 100%;*/
+    background-color: #e7e5e6;
+    overflow-y: scroll;
+    margin-bottom: 0;
+}
+#right::-webkit-scrollbar {
+    width: 0;
+}
+
+#left {
+    background-color: #737373;
+    margin-bottom: 0;
+    min-width: 50%;
+    min-height: 100%;
+}
+
+#left div:last-child{
+    margin-bottom: 50px;
+}
+
 .blogg_content {
     position: relative;
     color: white;
     text-align: center;
-    margin: 1vh 3vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
     width: 44vw; /* 50% of view width (vw) - 3%*2 of vw (from margin) */
 }
 
@@ -28,6 +67,11 @@ p {
     margin: 0 auto 1vh;
 }
 
+.blogg_content > h1 {
+    padding-top: 50px;
+    margin-top: 0;
+}
+
 .blogg_content::after {
     content: "";
     display: block;
@@ -37,21 +81,27 @@ p {
 }
 
 #arkiv_boks {
-    text-align: left;
+    text-align: center;
     width: 50%;
-    margin-left: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#arkiv_boks > h1 {
+    margin-top: 50px;
 }
 
 #arkiv_liste > * {
+    text-align: left;
     font-weight: bold;
 }
 
 #arkiv_liste > li {
-    list-style: ">";
+    list-style: none;
 }
 
 #arkiv_liste > li > button {
-    font-size: 17px; /*Same as p*/
+    font-size: 25px;
     font-weight: bold;
     border: none;
     outline: none;
@@ -60,4 +110,35 @@ p {
 
 #arkiv_liste > li > button:hover {
     cursor: pointer;
+}
+
+#arkiv_liste > li:last-child{
+    margin-bottom: 50px;
+}
+
+.insertLine {
+    opacity: 0;
+    transition: all 0.25s ease-in;
+}
+
+.show {
+    opacity: 1;
+}
+
+@keyframes rotating {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(90deg);}
+}
+
+@keyframes reverse_rotating {
+    0% {transform: rotate(90deg);}
+    100% {transform: rotate(0deg);}
+}
+
+div.normal {
+    animation: rotating 0.25s linear 0s 1 normal forwards;
+}
+
+div.rotated {
+    animation: reverse_rotating 0.25s linear 0s 1 normal forwards;
 }
