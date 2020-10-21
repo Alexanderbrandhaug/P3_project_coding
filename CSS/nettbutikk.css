@@ -20,7 +20,18 @@
 .modalImage-content {
     margin: auto;
     display: block;
-    height: 80%;
+    height: 70%;
+}
+
+.modalCaption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.modalImage-content, .modalCaption {
     animation-name: zoom;
     animation-duration: 0.5s;
 }

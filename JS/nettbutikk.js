@@ -62,9 +62,13 @@ for (let i = 0; i < articles.length; i++) {
     closeModalBtn.setAttribute('id', 'closeModalBtn'+articles[i].id)
     closeModalBtn.innerHTML = '&times;'
     closeModalBtn.addEventListener('click', function () {closeModal(articles[i].id)})
+    var modalCaption = document.createElement('p')
+    modalCaption.setAttribute('class', 'modalCaption')
+    modalCaption.setAttribute('id', 'modalCaption'+articles[i].id)
     
     modalDivision.appendChild(modalImage)
     modalDivision.appendChild(closeModalBtn)
+    modalDivision.appendChild(modalCaption)
     
 
     // Select size dropdown    
@@ -252,10 +256,12 @@ function updateTotalPrice() {
 function displayPicture(articleId) {
     var modalDivision = document.getElementById('modalDivision'+articleId)
     modalDivision.style.display = "block"
-    
 
     var modalImage = document.getElementById('imageModal'+articleId)
     modalImage.src = articles[articleId].image_loc
+
+    var modalCaption = document.getElementById('modalCaption'+articleId)
+    modalCaption.innerHTML = articles[articleId].description
 }
 
 function closeModal(articleId) {
