@@ -1,3 +1,4 @@
+
 *{    
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
@@ -26,7 +27,13 @@ body {
     position:fixed;
     top:0;
     z-index:9
+    }
 
+.navpage {
+    position: relative;
+    color:white;
+    text-decoration:none;
+    display: flex;
     } 
 
 .navpage {   
@@ -92,5 +99,24 @@ body {
     position: absolute;
     right: 0;
     background-color: #e7e5e6;
+
+}
+#instalogo{
+  padding-right: 20px;
+
+}
+#emailicon{
+  padding: 0;
+  border-style: none;
+  background-color:rgba(0, 0, 0, 0.10);
+
+}
+
+form{
+  display: none;
+}
+
+    background-color: #e7e5e6;
     margin-bottom: 50px;
 }
+
