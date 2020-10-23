@@ -120,3 +120,50 @@ form{
   display: none;
 }
 
+
+
+
+/* Test */
+#content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+}
+
+#right {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 50%;
+    right: 0;
+    min-width: 50%;
+    min-height: calc(100% - 50px*2); /*100% - nav and footer*/
+    background-color: #e7e5e6;
+    /*overflow-y: scroll;*/
+    overflow: auto;
+    margin-bottom: 0;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#right > *{
+    margin-bottom: 100px;
+}
+
+#right::-webkit-scrollbar {
+    width: 0;
+}
+
+#left {
+    background-color: #737373;
+    padding-bottom: 100px;
+    margin-bottom: 0;
+    min-width: 50%;
+    min-height: calc(100% - 50px*2);
+}
+
+#left:last-child{
+    margin-bottom: 100px;
+}
