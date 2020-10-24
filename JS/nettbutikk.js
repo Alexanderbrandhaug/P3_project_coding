@@ -311,3 +311,64 @@ function closeModal(articleId) {
     var modalDivision = document.getElementById('modalDivision'+articleId)
     modalDivision.style.display = "none";
 }
+
+function showShoppingCart() {
+    var smallCart = document.getElementById("smallCart")
+    smallCart.style.display = "block"
+    
+    var cartTable = document.createElement("table")
+    cartTable.setAttribute("id", "smallCartTable")    
+
+    if (selectedArticles.length > 0) {
+        document.getElementById("smallCartNoArticles").remove()
+    }
+
+    for (let i = 0; i < selectedArticles.length; i++) {
+        var article = selectedArticles[i]
+
+        console.log(article)
+
+        var row = document.createElement("TR")
+
+        var nameCell = document.createElement("TD")
+        nameCell.setAttribute("class", "nameCell")
+        nameCell.innerHTML= article.name
+
+        var numberCell = document.createElement("TD")
+        numberCell.innerHTML = article.number + " stk"
+
+        var sizeCell = document.createElement("TD")
+        sizeCell.innerHTML = article.size
+
+        var priceCell = document.createElement("TD")
+        var pricePrItem = parseInt(article.price.slice(0,-3))
+        priceCell.setAttribute('class', 'priceCell')
+        priceCell.innerHTML = article.number*pricePrItem + " kr"
+
+        row.appendChild(nameCell)
+        row.appendChild(numberCell)
+        row.appendChild(sizeCell)
+        row.appendChild(priceCell)
+
+        cartTable.appendChild(row)
+
+    }
+
+    smallCart.appendChild(cartTable)
+
+    var checkOutBtn = document.createElement("BUTTON")
+    checkOutBtn.setAttribute('id', 'checkOutBtn')
+    checkOutBtn.innerHTML = "Bestill"
+    checkOutBtn.addEventListener('click', checkOut)
+
+    document.getElementById('noArticlesInCart').innerHTML = ""
+
+    smallCart.appendChild(checkOutBtn)
+
+    var totalPriceLine = document.createElement("TR")
+    totalPriceLine.setAttribute('id', 'totalPriceLine')
+    smallCartTable.appendChild(totalPriceLine)
+
+}
+
+
