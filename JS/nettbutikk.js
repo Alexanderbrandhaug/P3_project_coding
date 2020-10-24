@@ -288,7 +288,7 @@ function updateTotalPrice() {
 
     var totalPrice = document.createElement("TD")
     totalPrice.setAttribute('id', "totalPrice")
-    totalPrice.innerHTML =  newPrice + "kr"
+    totalPrice.innerHTML =  newPrice + " kr"
 
     newTotalPriceLine.appendChild(totalPrice)
 
