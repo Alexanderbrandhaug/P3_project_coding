@@ -6,6 +6,8 @@ const left = document.getElementById("left")
 const right = document.getElementById("right")
 const summary = document.getElementById("summary")
 const cartTable = document.getElementById("cartTable")
+const smallCart = document.getElementById("smallCart")
+const smallCartTable = document.getElementById("smallCartTable")
 
 // List of JSON-objects, containing information about each article
 const articles = [
@@ -231,8 +233,33 @@ function addToCart(articleId) {
     row.appendChild(numberCell)
     row.appendChild(sizeCell)
     row.appendChild(priceCell)
-
+   
     cartTable.appendChild(row)
+
+    var row2 = document.createElement("TR")
+
+    var nameCell2 = document.createElement("TD")
+    nameCell2.setAttribute("class", "nameCell")
+    nameCell2.innerHTML= article.name
+
+    var numberCell2 = document.createElement("TD")
+    numberCell2.innerHTML = article.number + " stk"
+
+    var sizeCell2 = document.createElement("TD")
+    sizeCell2.innerHTML = article.selectedSize
+
+    var priceCell2 = document.createElement("TD")
+    var pricePrItem2 = parseInt(article.price.slice(0,-3))
+    priceCell2.setAttribute('class', 'priceCell')
+    priceCell2.innerHTML = article.number*pricePrItem + " kr"
+ 
+    row2.appendChild(nameCell2)
+    row2.appendChild(numberCell2)
+    row2.appendChild(sizeCell2)
+    row2.appendChild(priceCell2)
+   
+    smallCartTable.appendChild(row2)
+    
 
     selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price, number: articles[articleId].number})
 
@@ -247,17 +274,30 @@ function addToCart(articleId) {
 function addCheckOutBtnAndTotalPrice() {
     
     var checkOutBtn = document.createElement("BUTTON")
-    checkOutBtn.setAttribute('id', 'checkOutBtn')
+    checkOutBtn.setAttribute('class', 'checkOutBtn')
     checkOutBtn.innerHTML = "Bestill"
     checkOutBtn.addEventListener('click', checkOut)
 
-    document.getElementById('noArticlesInCart').innerHTML = ""
+    document.getElementById('noArticlesInCart').remove()
 
     summary.appendChild(checkOutBtn)
 
     var totalPriceLine = document.createElement("TR")
     totalPriceLine.setAttribute('id', 'totalPriceLine')
     cartTable.appendChild(totalPriceLine)
+
+    var checkOutBtnSmallCart = document.createElement("BUTTON")
+    checkOutBtnSmallCart.setAttribute("class", "checkOutBtn")
+    checkOutBtnSmallCart.innerHTML = "Bestill"
+    checkOutBtnSmallCart.addEventListener('click', checkOut)
+
+    document.getElementById('smallCartNoArticles').remove()
+
+    smallCart.appendChild(checkOutBtnSmallCart)
+
+    var smallCartTotalPriceLine = document.createElement("TR")
+    smallCartTotalPriceLine.setAttribute('id', 'smallCartTotalPriceLine')
+    smallCartTable.appendChild(smallCartTotalPriceLine)
 
 }
 
@@ -293,6 +333,23 @@ function updateTotalPrice() {
     newTotalPriceLine.appendChild(totalPrice)
 
     cartTable.appendChild(newTotalPriceLine)
+
+    var smallCartOldTotalPriceLine = document.getElementById("smallCartTotalPriceLine")
+    smallCartOldTotalPriceLine.remove()
+
+    var smallCartNewTotalPriceLine = document.createElement("TR")
+    smallCartNewTotalPriceLine.setAttribute("id", "smallCartTotalPriceLine")
+    smallCartNewTotalPriceLine.appendChild(document.createElement("TD"))
+    smallCartNewTotalPriceLine.appendChild(document.createElement("TD"))
+    smallCartNewTotalPriceLine.appendChild(document.createElement("TD"))
+
+    var smallCartTotalPrice = document.createElement("TD")
+    smallCartTotalPrice.setAttribute("id", "smallCartTotalPrice")
+    smallCartTotalPrice.innerHTML = newPrice + " kr"
+    
+    smallCartNewTotalPriceLine.appendChild(smallCartTotalPrice)
+
+    smallCartTable.appendChild(smallCartNewTotalPriceLine)
     
 }
 
@@ -313,62 +370,7 @@ function closeModal(articleId) {
 }
 
 function showShoppingCart() {
-    var smallCart = document.getElementById("smallCart")
-    smallCart.style.display = "block"
-    
-    var cartTable = document.createElement("table")
-    cartTable.setAttribute("id", "smallCartTable")    
-
-    if (selectedArticles.length > 0) {
-        document.getElementById("smallCartNoArticles").remove()
-    }
-
-    for (let i = 0; i < selectedArticles.length; i++) {
-        var article = selectedArticles[i]
-
-        console.log(article)
-
-        var row = document.createElement("TR")
-
-        var nameCell = document.createElement("TD")
-        nameCell.setAttribute("class", "nameCell")
-        nameCell.innerHTML= article.name
-
-        var numberCell = document.createElement("TD")
-        numberCell.innerHTML = article.number + " stk"
-
-        var sizeCell = document.createElement("TD")
-        sizeCell.innerHTML = article.size
-
-        var priceCell = document.createElement("TD")
-        var pricePrItem = parseInt(article.price.slice(0,-3))
-        priceCell.setAttribute('class', 'priceCell')
-        priceCell.innerHTML = article.number*pricePrItem + " kr"
-
-        row.appendChild(nameCell)
-        row.appendChild(numberCell)
-        row.appendChild(sizeCell)
-        row.appendChild(priceCell)
-
-        cartTable.appendChild(row)
-
-    }
-
-    smallCart.appendChild(cartTable)
-
-    var checkOutBtn = document.createElement("BUTTON")
-    checkOutBtn.setAttribute('id', 'checkOutBtn')
-    checkOutBtn.innerHTML = "Bestill"
-    checkOutBtn.addEventListener('click', checkOut)
-
-    document.getElementById('noArticlesInCart').innerHTML = ""
-
-    smallCart.appendChild(checkOutBtn)
-
-    var totalPriceLine = document.createElement("TR")
-    totalPriceLine.setAttribute('id', 'totalPriceLine')
-    smallCartTable.appendChild(totalPriceLine)
-
+    document.getElementById("smallCart").style.display = "block"
 }
 
 
