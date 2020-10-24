@@ -18,26 +18,27 @@ const articles = [
     selectedSize: "", number: ""},
 
     {id: 1, 
-    name: "Rosa sommerkjole", 
-    price: "349 kr", 
-    description: "Rosa sommerkjole med fine detaljer.", 
-    image_loc: "images/rosakjole.jpg", 
-    sizes: ["1-2 år", "3-4 år", "5-6 år"], 
-    selectedSize: "", number: ""},
-
-    {id: 2, name: "Ullshorts", 
+    name: "Ullshorts", 
     price: "249 kr", 
     description: "Ullshorts i dus rosafarge.", 
     image_loc: "images/Ullshorts.jpg", 
     sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
     selectedSize: "", number: ""},
 
-    {id: 3, 
+    {id: 2, 
     name: "Lilla genser", 
     price: "349 kr", 
     description: "Behagelig lilla genser med søte borddetaljer.", 
     image_loc: "images/lillagenser.jpg", 
     sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
+    selectedSize: "", number: ""},
+
+    {id: 3, 
+    name: "Rosa sommerkjole", 
+    price: "349 kr", 
+    description: "Rosa sommerkjole med fine detaljer.", 
+    image_loc: "images/rosakjole.jpg", 
+    sizes: ["1-2 år", "3-4 år", "5-6 år"], 
     selectedSize: "", number: ""},
 
     {id: 4, 
@@ -212,6 +213,7 @@ function addToCart(articleId) {
     var row = document.createElement("TR")
 
     var nameCell = document.createElement("TD")
+    nameCell.setAttribute("class", "nameCell")
     nameCell.innerHTML= article.name
 
     var numberCell = document.createElement("TD")

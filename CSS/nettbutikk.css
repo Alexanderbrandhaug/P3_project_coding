@@ -2,14 +2,14 @@
     border-bottom: 2px solid black;
     margin: 5px;
     position: relative;
-    min-height: 180px;
+    min-height: 250px;
     color: white;
 }
 .article-image {
     position: absolute;
     top: 10%;
     left: 5px;
-    height: 80%;  
+    width: 200px;
     cursor: pointer;  
 }
 
@@ -56,14 +56,14 @@
     font-size: 14pt;
     position: absolute;
     top: 10%;
-    left: 150px;
+    left: 225px;
 }
 
 .article-price {
     font-size: 10pt;
     position: absolute;
     top: 25%;
-    left: 150px;
+    left: 225px;
 }
 
 .article-description {
@@ -71,7 +71,7 @@
     max-width: 40%;
     position: absolute;
     top: 45%;
-    left: 150px;
+    left: 225px;
 }
 
 .sizeDD {
@@ -124,6 +124,10 @@
     min-width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.nameCell {
+    text-align: left;
 }
 
 .priceCell {
