@@ -9,20 +9,61 @@ const cartTable = document.getElementById("cartTable")
 
 // List of JSON-objects, containing information about each article
 const articles = [
-    {id: 0, name: "Artikkel 1", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["0-3 måneder", "6-12 måneder", "1-2 år"], selectedSize: "", number: ""},
-    {id: 1, name: "Artikkel 2", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["1-2 år", "3-4 år", "5-6 år"], selectedSize: "", number: ""},
-    {id: 2, name: "Artikkel 2", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
-    {id: 3, name: "Artikkel 2", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
-    {id: 4, name: "Artikkel 2", price: "849 kr", description: "Beskrivelse her", image_loc: "images/strikkp1.jpg", sizes: ["6-12 måneder", "1-2 år", "3-4 år"], selectedSize: "", number: ""},
+    {id: 0, 
+    name: "Sett i naturfarger", 
+    price: "1149 kr", 
+    description: "Sett i naturfarger bestående av lue, genser med pen krage og praktisk ullbukse.", 
+    image_loc: "images/naturfarge_sett.jpg", 
+    sizes: ["0-3 måneder", "6-12 måneder", "1-2 år", "3-4 år"], 
+    selectedSize: "", number: ""},
+
+    {id: 1, 
+    name: "Rosa sommerkjole", 
+    price: "349 kr", 
+    description: "Rosa sommerkjole med fine detaljer.", 
+    image_loc: "images/rosakjole.jpg", 
+    sizes: ["1-2 år", "3-4 år", "5-6 år"], 
+    selectedSize: "", number: ""},
+
+    {id: 2, name: "Ullshorts", 
+    price: "249 kr", 
+    description: "Ullshorts i dus rosafarge.", 
+    image_loc: "images/Ullshorts.jpg", 
+    sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
+    selectedSize: "", number: ""},
+
+    {id: 3, 
+    name: "Lilla genser", 
+    price: "349 kr", 
+    description: "Behagelig lilla genser med søte borddetaljer.", 
+    image_loc: "images/lillagenser.jpg", 
+    sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
+    selectedSize: "", number: ""},
+
+    {id: 4, 
+    name: "Hvit kjolejakke", 
+    price: "399 kr", 
+    description: "Søt hvit kjolejakke ", 
+    image_loc: "images/hvitkjolejakke.jpg", 
+    sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
+    selectedSize: "", number: ""},
+
+    {id: 5, 
+    name: "Sett i rosafarger", 
+    price: "1149 kr", 
+    description: "Sett bestående av rosa lue, hvit jakke og rosa body.", 
+    image_loc: "images/rosa_og_hvitt_sett.jpg", 
+    sizes: ["0-3 måneder", "6-12 måneder", "1-2 år", "3-4 år"], 
+    selectedSize: "", number: ""},
 ]
 
 // Articles in shopping cart will be added to this list
 const selectedArticles = []
 
-
 // GENERATION OF ELEMENTS FOR EACH ARTICLE
 
 for (let i = 0; i < articles.length; i++) {
+
     // Create division where information about the article will be displayed
     var articleDivision = document.createElement("div")
     articleDivision.setAttribute('class', 'article')
