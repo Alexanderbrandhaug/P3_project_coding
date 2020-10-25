@@ -51,9 +51,9 @@ iconDiv.appendChild(contactForm)
 
 function emailform() {
   var contactform = document.getElementById("contact-form");
-  if (contactform.style.display === "none") {
-    contactform.style.display = "block";
-  } else {
+  if (contactform.style.display === "block") {
     contactform.style.display = "none";
+  } else {
+    contactform.style.display = "block";
   }
 }
