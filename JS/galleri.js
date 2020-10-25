@@ -24,5 +24,9 @@ function main(bilde) {
         parent.appendChild(node);
         node.id = "current_picture"
     }
+}
 
+function testing() {
+    document.getElementById("right").innerHTML ="";
+    document.getElementById("right").style.position = 'absolute';
 }
