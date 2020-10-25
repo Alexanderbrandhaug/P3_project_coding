@@ -373,4 +373,7 @@ function showShoppingCart() {
     document.getElementById("smallCart").style.display = "block"
 }
 
+function closeSmallCart() {
+    document.getElementById("smallCart").style.display = "none"
+}
 
