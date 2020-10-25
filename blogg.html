@@ -6,6 +6,7 @@
     <title>Blogg</title>
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/blogg.css">
+    <link rel="stylesheet" href="CSS/email.css">
 </head>
 
 <body>
@@ -78,10 +79,12 @@
         <div id="right">
 
             <div id="arkiv_boks">
-                <h1>Arkiv:</h1>
-                <ul id="arkiv_liste">
+                <div>
+                    <h1>Arkiv:</h1>
+                    <ul id="arkiv_liste">
 
-                </ul>
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -89,14 +92,15 @@
     </div>
     <div id="footer">
         <p id="footerText">© 2020</p>
-        <div class="iconDiv">
-            <img src="images/contact.png" class="icon" id="contact" alt="Contact icon">
+        <div id="iconDiv">
+            <img src="images/contact.png" class="icon" id="contact" alt="Contact icon" onclick="emailform()">
             <a href="https://instagram.com/strikktilelea?igshid=1qrrqqmczzgrx" target="_blank">
                 <img src="images/instalogo.png" class="icon" id="insta" alt="Instagram icon">
             </a>
         </div>
     </div>
     <script src="JS/navbar_footer.js"></script>
+    <script src="JS/emailform.js"></script>
     <script src="JS/blogg_arkiv.js" defer></script>
 </body>
 
