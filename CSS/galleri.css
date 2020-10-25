@@ -1,6 +1,15 @@
 
 #right {
+  /*width: 50%;
+  min-height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;*/
   text-align: center;
+}
+
+#right > *:not(img) {
+  width: 100%;
 }
 
 .row {
