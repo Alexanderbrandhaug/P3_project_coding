@@ -29,12 +29,6 @@ body {
     z-index:9
     }
 
-.navpage {
-    position: relative;
-    color:white;
-    text-decoration:none;
-    display: flex;
-    } 
 
 .navpage {   
     position: relative;

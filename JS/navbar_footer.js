@@ -1,4 +1,4 @@
-/**Adds a white stripe over the current page on the navbar*/
+// Adds a white stripe over the current page on the navbar
 function pagebar() {
     var links = document.getElementById('navbar').getElementsByTagName("a");
     var current = location.href;
@@ -13,19 +13,18 @@ function pagebar() {
 }
 window.onload = pagebar;
 
-/** increase icon size */
+// Increase icon size
 function onEnter(icontype) {
     icontype.style.transform = "scale(1.2,1.2)"
 }
-
-/** reset icon size */
+// Reset icon size
 function onLeave(icontype) {
     icontype.style.transform = "";
 }
 
+// Check if cursor is over icon
 var contactIcon = document.getElementById("contact"),
     instaIcon = document.getElementById("insta");
-
 contactIcon.addEventListener("mouseenter", function () { onEnter(contactIcon); });
 instaIcon.addEventListener("mouseenter", function () { onEnter(instaIcon); });
 contactIcon.addEventListener("mouseleave", function () { onLeave(contactIcon); });

@@ -2,10 +2,70 @@ body, html {
     margin: 0px;
 }
 
-.backimg {
+.backImg {
     background-position: 50% 50%;
     background-size: cover;
     background-image: url("../images/forside.jpg");
     background-repeat:no-repeat;
     min-height: 100vh;
     }
+
+#brightDiv{
+    position: absolute;
+    width:100%;
+    height:100%;
+    opacity:0%;
+    background-color:white;
+    animation-duration: 2s;  
+}
+
+#navbar{
+    animation-duration:2s;
+    top:-50px;
+}
+
+#footer{
+    animation-duration:2s;
+    bottom:-50px;
+}
+
+#welcomeText{
+    font-size: 17px;
+    color:white;
+    width:200px;
+    position: fixed;
+    left:-100%;
+    top:20%;
+    animation-duration: 4s;
+
+}
+
+@keyframes brightAnimation{
+    0%{opacity: 100%;}
+    100%{opacity:0%;}
+}
+
+@keyframes navbarFadeIn{
+    0%{top:-50px;}
+    75%{top:-50px;}
+    100%{top:0px;}
+}
+
+@keyframes footerFadeIn{
+    0%{bottom:-50px;}
+    75%{bottom:-50px;}
+    100%{bottom:0px;}
+}
+
+@keyframes textFadeIn{
+    0%{left:-100%;}
+    75%{left:-100%;}
+    82.5%{left:5%;}
+    100%{left:10%;}
+}
+
+
+
+
+
+
