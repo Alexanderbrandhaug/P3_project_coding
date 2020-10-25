@@ -2,14 +2,14 @@
     border-bottom: 2px solid black;
     margin: 5px;
     position: relative;
-    min-height: 180px;
+    min-height: 250px;
     color: white;
 }
 .article-image {
     position: absolute;
     top: 10%;
     left: 5px;
-    height: 80%;  
+    width: 200px;
     cursor: pointer;  
 }
 
@@ -56,43 +56,43 @@
     font-size: 14pt;
     position: absolute;
     top: 10%;
-    left: 150px;
+    left: 225px;
 }
 
 .article-price {
     font-size: 10pt;
     position: absolute;
     top: 25%;
-    left: 150px;
+    left: 225px;
 }
 
 .article-description {
     font-size: 10pt;
-    max-width: 40%;
+    max-width: 25%;
     position: absolute;
     top: 45%;
-    left: 150px;
+    left: 225px;
 }
 
 .sizeDD {
     position: absolute;
-    bottom: 35%;
+    bottom: 40%;
     right: 5%
 }
 
 .numberDD {
     position: absolute;
-    bottom: 20%;
+    bottom: 25%;
     right: 5%;
 }
 
 .addToCartBtn {
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     right: 5%;
 }
 
-.sizeDD, .numberDD, .addToCartBtn, #checkOutBtn {
+.sizeDD, .numberDD, .addToCartBtn, .checkOutBtn {
     background-color: lightgray;
     min-width: 150px;
 }
@@ -126,6 +126,10 @@
     margin-right: auto;
 }
 
+.nameCell {
+    text-align: left;
+}
+
 .priceCell {
     text-align: right;
 }
@@ -145,7 +149,7 @@
     font-size: 20pt;
 }
 
-#checkOutBtn {
+.checkOutBtn, .smallCheckOutBtn {
     width: 80%;
     margin: 5px;
 }
@@ -154,8 +158,86 @@
     background-color: white;
 }
 
-#totalPrice {
+#totalPrice, #smallCartTotalPrice {
     font-weight: bold;
     text-align: right;
 }
+
+#shoppingCartImg {
+    width: 50px;
+    position: fixed;
+    bottom: 50px;
+    right: 5px;
+    z-index: 1;
+    cursor: pointer;
+    display: none;
+}
+
+#smallCart {
+    height: 400px;
+    background-color: #e7e5e6;
+    width: 70%;
+    position: fixed;
+    bottom: 50px;
+    right: 5px;
+    z-index: 1;
+    display: none; 
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+
+
+}
+
+#smallCartTitle {
+    font-size: 15pt;
+}
+
+#smallCartTable {
+    min-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#closeSmallCart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25pt;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1100px) {
+    .article-description {
+        display: none;
+    }
+}
+
+@media (min-width: 800px) {
+    #smallCart {
+        display: none !important;
+    }
+}
+
+@media (max-width: 800px) {
+    #left {
+        width: 100%;
+    }
+    #right {
+        display: none;
+    }
+
+    #shoppingCartImg {
+        display: block;
+    }
+
+    .article-description {
+        display: block;
+    }
+    
+
+}
+
 
