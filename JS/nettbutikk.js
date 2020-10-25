@@ -15,7 +15,7 @@ const articles = [
     name: "Sett i naturfarger", 
     price: "1149 kr", 
     description: "Sett i naturfarger bestående av lue, genser med pen krage og praktisk ullbukse.", 
-    image_loc: "images/naturfarge_sett.jpg", 
+    image_loc: "images/nettbutikk_1.jpg", 
     sizes: ["0-3 måneder", "6-12 måneder", "1-2 år", "3-4 år"], 
     selectedSize: "", number: ""},
 
@@ -23,7 +23,7 @@ const articles = [
     name: "Ullshorts", 
     price: "249 kr", 
     description: "Ullshorts i dus rosafarge.", 
-    image_loc: "images/Ullshorts.jpg", 
+    image_loc: "images/nettbutikk_2.jpg", 
     sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
     selectedSize: "", number: ""},
 
@@ -31,7 +31,7 @@ const articles = [
     name: "Lilla genser", 
     price: "349 kr", 
     description: "Behagelig lilla genser med søte borddetaljer.", 
-    image_loc: "images/lillagenser.jpg", 
+    image_loc: "images/nettbutikk_3.jpg", 
     sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
     selectedSize: "", number: ""},
 
@@ -39,7 +39,7 @@ const articles = [
     name: "Rosa sommerkjole", 
     price: "349 kr", 
     description: "Rosa sommerkjole med fine detaljer.", 
-    image_loc: "images/rosakjole.jpg", 
+    image_loc: "images/nettbutikk_4.jpg", 
     sizes: ["1-2 år", "3-4 år", "5-6 år"], 
     selectedSize: "", number: ""},
 
@@ -47,7 +47,7 @@ const articles = [
     name: "Hvit kjolejakke", 
     price: "399 kr", 
     description: "Søt hvit kjolejakke ", 
-    image_loc: "images/hvitkjolejakke.jpg", 
+    image_loc: "images/nettbutikk_5.jpg", 
     sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
     selectedSize: "", number: ""},
 
@@ -55,7 +55,7 @@ const articles = [
     name: "Sett i rosafarger", 
     price: "1149 kr", 
     description: "Sett bestående av rosa lue, hvit jakke og rosa body.", 
-    image_loc: "images/rosa_og_hvitt_sett.jpg", 
+    image_loc: "images/nettbutikk_6.jpg", 
     sizes: ["0-3 måneder", "6-12 måneder", "1-2 år", "3-4 år"], 
     selectedSize: "", number: ""},
 ]
