@@ -1,10 +1,5 @@
 
 #right {
-  width: 50%;
-  min-height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
   text-align: center;
 }
 
@@ -41,11 +36,21 @@
 #current_picture {
 position: fixed;
 right: 12.5%;
-top: 15%;
+top: 20%;
 border: none;
 transform: none;
 }
 
+#button {
+  top: 50px;
+  right: 0%;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  visibility: hidden;
+  background-color: rgb(190, 190, 190);
+  border: none;
+}
 
 @media screen and (max-width: 500px) {
 #left {
@@ -67,5 +72,8 @@ transform: none;
 }
 #right img {
   width: 60%;
+}
+#button {
+  visibility: visible;
 }
 }
