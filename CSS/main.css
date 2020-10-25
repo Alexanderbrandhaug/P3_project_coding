@@ -111,9 +111,7 @@ body {
     font-size: 10pt;
 }
 
-form{
-  display: none;
-}
+
 
 
 
@@ -161,4 +159,97 @@ form{
 
 #left:last-child{
     margin-bottom: 100px;
+}
+
+
+#contact-form{
+    display: none;
+    position: fixed;
+    background-color:rgba(0, 0, 0, 0.75);
+    color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    box-sizing: border-box;
+    width: 600px;
+    height: 500px;
+    bottom: 50px;
+    right: 0;
+  
+}
+
+#Email_name{
+    position: absolute;
+    background-color:rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-color: white;
+    color: white;
+    left:10%;
+    top:10%;
+    width:80%;
+    padding-top:2%;
+    font-size: 15px;
+    border-width: thin;
+}
+  
+#message{
+    position: absolute;
+    background-color:rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-color: white;
+    color: white;
+    text-align: left;
+    width: 80%;
+    left:10%;
+    height: 60%;
+    bottom:10%;
+    font-size: 15px;
+    border-width: thin;
+  
+  
+  
+  }
+  
+#Email_input{
+    position: absolute;
+    background-color:rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-color: white;
+    color: white;
+    left:10%;
+    top:20%;
+    width:80%;
+    padding-top:2%;
+    font-size: 15px;
+    border-width: thin;
+  
+  }
+  
+#send{
+    position: absolute;
+    background-color:rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-color: white;
+    color: white;
+    bottom:1%;
+    left:10%;
+    width:12%;
+    height: 6%;
+    margin-top: 10%;
+    border-width: thin;
+  
+  
+  }
+  
+
+@media (max-width: 700px) {
+    #left {
+        width: 100%;
+    }
+    #right {
+        display: none;
+    }
+    #contact-form {
+        max-width: 80%;
+        
+    }
+    
 }
