@@ -1,17 +1,15 @@
 // Displays front page animation for first time visits
-
-if (!localStorage.isFirstVisit) {
-    localStorage.isFirstVisit = true;
-} else if (localStorage.isFirstVisit == 'true') {
-    localStorage.isFirstVisit = false;
+if (!sessionStorage.isFirstVisit) {
+    sessionStorage.isFirstVisit = true;
 }
+
 
 brightDiv = document.getElementById("brightDiv")
 welcomeTxt = document.getElementById("welcomeText")
 navbar = document.getElementById("navbar")
 footer = document.getElementById("footer")
 
-if (localStorage.isFirstVisit == 'true') {
+if (sessionStorage.isFirstVisit == 'true') {
 
     brightDiv.style.animationName = "brightAnimation"
 
@@ -23,6 +21,7 @@ if (localStorage.isFirstVisit == 'true') {
 
     footer.style.animationName = "footerFadeIn"
     footer.style.bottom = "0px"
+    sessionStorage.isFirstVisit = false
 
 }
 else {

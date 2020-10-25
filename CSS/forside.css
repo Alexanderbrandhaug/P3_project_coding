@@ -31,6 +31,7 @@ body, html {
 
 #welcomeText{
     font-size: 17px;
+    color:white;
     width:200px;
     position: fixed;
     left:-100%;
