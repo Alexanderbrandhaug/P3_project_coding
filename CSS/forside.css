@@ -16,16 +16,16 @@ body, html {
     height:100%;
     opacity:0%;
     background-color:white;
-    animation-duration: 4s;  
+    animation-duration: 2s;  
 }
 
 #navbar{
-    animation-duration:4s;
+    animation-duration:2s;
     top:-50px;
 }
 
 #footer{
-    animation-duration:4s;
+    animation-duration:2s;
     bottom:-50px;
 }
 
@@ -36,7 +36,7 @@ body, html {
     position: fixed;
     left:-100%;
     top:20%;
-    animation-duration: 6s;
+    animation-duration: 4s;
 
 }
 
