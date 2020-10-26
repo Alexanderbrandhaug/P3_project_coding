@@ -24,7 +24,7 @@ const articles = [
     price: "249 kr", 
     description: "Ullshorts i dus rosafarge.", 
     image_loc: "images/nettbutikk_2.jpg", 
-    sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
+    sizes: ["6-9 måneder", "9-12 måneder", "1-2 år", "3-4 år"], 
     selectedSize: "", number: ""},
 
     {id: 2, 
@@ -32,7 +32,7 @@ const articles = [
     price: "349 kr", 
     description: "Behagelig lilla genser med søte borddetaljer.", 
     image_loc: "images/nettbutikk_3.jpg", 
-    sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
+    sizes: ["6-12 måneder", "1-1 1/2 år", "1 1/2 år - 3 år",  "4-6 år"], 
     selectedSize: "", number: ""},
 
     {id: 3, 
@@ -48,7 +48,7 @@ const articles = [
     price: "399 kr", 
     description: "Søt hvit kjolejakke ", 
     image_loc: "images/nettbutikk_5.jpg", 
-    sizes: ["6-12 måneder", "1-2 år", "3-4 år"], 
+    sizes: ["0-6 måneder", "6-12 måneder", "1-2 år", "3-4 år", "5-6 år"], 
     selectedSize: "", number: ""},
 
     {id: 5, 
@@ -56,15 +56,15 @@ const articles = [
     price: "1149 kr", 
     description: "Sett bestående av rosa lue, hvit jakke og rosa body.", 
     image_loc: "images/nettbutikk_6.jpg", 
-    sizes: ["0-3 måneder", "6-12 måneder", "1-2 år", "3-4 år"], 
+    sizes: ["0-3 måneder", "6-9 måneder", "9-12 måneder", "1-2 år", "3-4 år"], 
     selectedSize: "", number: ""},
 ]
 
 // Articles in shopping cart will be added to this list
 const selectedArticles = []
 
-// GENERATION OF ELEMENTS FOR EACH ARTICLE
 
+// GENERATION OF ELEMENTS FOR EACH ARTICLE
 for (let i = 0; i < articles.length; i++) {
 
     // Create division where information about the article will be displayed
@@ -94,7 +94,7 @@ for (let i = 0; i < articles.length; i++) {
     articleImage.setAttribute('id', 'articleImage'+articles[i].id)
     articleImage.addEventListener('click', function() {displayPicture(articles[i].id)})
 
-    // Image modal (pop-up when click on article image)
+    // Image modal (pop-up image when click on article image)
     var modalDivision = document.createElement('div')
     modalDivision.setAttribute('class', 'imageModal')
     modalDivision.setAttribute('id', 'modalDivision'+articles[i].id)
@@ -167,6 +167,7 @@ for (let i = 0; i < articles.length; i++) {
     addToCartBtn.setAttribute('disabled', function() {if (articles[i].selectedSize=="") {true} else if (articles[i].number=="") {true} else {false}})
     addToCartBtn.addEventListener('click', function() {addToCart(articles[i].id)})
 
+    // Add all of the components to the division for the article
     articleDivision.appendChild(articleName)
     articleDivision.appendChild(articlePrice)
     articleDivision.appendChild(articleDescription)
@@ -176,10 +177,12 @@ for (let i = 0; i < articles.length; i++) {
     articleDivision.appendChild(numberDD)
     articleDivision.appendChild(addToCartBtn)
 
-
+    // Add the division for the article to the left side of the page
     left.appendChild(articleDivision)
 }
 
+// Updates selected size of the article
+// Updates if "Legg til i handlekurv"-button is disabled or enabled
 function updateSize(value, articleId) {
     if (value == "" || value == "Velg størrelse" ) {
         articles[articleId].selectedSize = ""
@@ -194,6 +197,8 @@ function updateSize(value, articleId) {
 
 }
 
+// Updates selected number of the article
+// Updates if "Legg til i handlekurv"-button is disabled or enabled
 function updateNumber(value, articleId) {
     if (value == "" || value == "Velg antall") {
         articles[articleId].number = ""
@@ -208,84 +213,101 @@ function updateNumber(value, articleId) {
 
 }
 
+// Adds the article to the shopping cart (both the large one and the small one)
 function addToCart(articleId) {
 
+    // Access article
     var article = articles[articleId]
 
+    // Create row in a table
     var row = document.createElement("TR")
+    var rowSmall = document.createElement("TR")
 
+    // Generate cell for the name, number, size and price for the article for the large and the small shopping cart
     var nameCell = document.createElement("TD")
     nameCell.setAttribute("class", "nameCell")
     nameCell.innerHTML= article.name
 
+    var nameCellSmall = document.createElement("TD")
+    nameCellSmall.setAttribute("class", "nameCell")
+    nameCellSmall.innerHTML= article.name
+
     var numberCell = document.createElement("TD")
     numberCell.innerHTML = article.number + " stk"
+
+    var numberCellSmall = document.createElement("TD")
+    numberCellSmall.innerHTML = article.number + " stk"
 
     var sizeCell = document.createElement("TD")
     sizeCell.innerHTML = article.selectedSize
 
+    var sizeCellSmall = document.createElement("TD")
+    sizeCellSmall.innerHTML = article.selectedSize
+
+    // The price is found by removing " kr" (last three letters) and converting from string to int
     var priceCell = document.createElement("TD")
     var pricePrItem = parseInt(article.price.slice(0,-3))
     priceCell.setAttribute('class', 'priceCell')
     priceCell.innerHTML = article.number*pricePrItem + " kr"
+
+    var priceCellSmall = document.createElement("TD")
+    priceCellSmall.setAttribute('class', 'priceCell')
+    priceCellSmall.innerHTML = article.number*pricePrItem + " kr"
  
+    // Add the cells to the large shopping cart
     row.appendChild(nameCell)
     row.appendChild(numberCell)
     row.appendChild(sizeCell)
     row.appendChild(priceCell)
    
-    cartTable.appendChild(row)
-
-    var row2 = document.createElement("TR")
-
-    var nameCell2 = document.createElement("TD")
-    nameCell2.setAttribute("class", "nameCell")
-    nameCell2.innerHTML= article.name
-
-    var numberCell2 = document.createElement("TD")
-    numberCell2.innerHTML = article.number + " stk"
-
-    var sizeCell2 = document.createElement("TD")
-    sizeCell2.innerHTML = article.selectedSize
-
-    var priceCell2 = document.createElement("TD")
-    var pricePrItem2 = parseInt(article.price.slice(0,-3))
-    priceCell2.setAttribute('class', 'priceCell')
-    priceCell2.innerHTML = article.number*pricePrItem + " kr"
+    // Add the row to the table in the large shopping cart
+    cartTable.appendChild(row)    
  
-    row2.appendChild(nameCell2)
-    row2.appendChild(numberCell2)
-    row2.appendChild(sizeCell2)
-    row2.appendChild(priceCell2)
+    // Add the cells to the small shopping cart
+    rowSmall.appendChild(nameCellSmall)
+    rowSmall.appendChild(numberCellSmall)
+    rowSmall.appendChild(sizeCellSmall)
+    rowSmall.appendChild(priceCellSmall)
    
-    smallCartTable.appendChild(row2)
+    // Add the row to the table in the small shopping cart
+    smallCartTable.appendChild(rowSmall)
     
-
+    // Update the array selectedArticles with the new article
     selectedArticles.push({name: articles[articleId].name, size: articles[articleId].selectedSize, price: articles[articleId].price, number: articles[articleId].number})
 
     if (selectedArticles.length == 1) {
+        // If it is the first item added to the cart, add the "Bestill" button in the shopping cart, and remove "Det er ingen artikler i handlekurven".
         addCheckOutBtnAndTotalPrice()
     } 
     
+    // Update the total price displayed in the shopping cart
     updateTotalPrice()
     
 }
 
+
+// Adds the check put button to the shopping cart (both large cart and small cart)
 function addCheckOutBtnAndTotalPrice() {
     
+    // Create button
     var checkOutBtn = document.createElement("BUTTON")
     checkOutBtn.setAttribute('class', 'checkOutBtn')
     checkOutBtn.innerHTML = "Bestill"
     checkOutBtn.addEventListener('click', checkOut)
 
+    // Remove the text "Det er ingen artikler i handlekurven"
     document.getElementById('noArticlesInCart').remove()
 
+    // Add the checkout button to the shopping cart (summary)
     summary.appendChild(checkOutBtn)
 
+    // This line will contain the total price of the articles in the shopping cart
     var totalPriceLine = document.createElement("TR")
     totalPriceLine.setAttribute('id', 'totalPriceLine')
     cartTable.appendChild(totalPriceLine)
 
+    // Similar, but for the small shopping cart
+    
     var checkOutBtnSmallCart = document.createElement("BUTTON")
     checkOutBtnSmallCart.setAttribute("class", "checkOutBtn")
     checkOutBtnSmallCart.innerHTML = "Bestill"
@@ -301,38 +323,54 @@ function addCheckOutBtnAndTotalPrice() {
 
 }
 
+
+// "Let me order everything in the shopping cart"
+// The user will be notified that he or she ordered the articles, but nothing will happen
 function checkOut() {
     alert("Bestilt")
 }
 
+// Updates the total price of the articles in the shopping cart
 function updateTotalPrice() {
-    var oldtotalPriceLine = document.getElementById('totalPriceLine')
-    oldtotalPriceLine.remove()
 
+    // Remove the old total price line
+    document.getElementById('totalPriceLine').remove()
+    
+
+    // This loops calculates the total price
     var newPrice = 0 ;
     for (var i = 0; i < selectedArticles.length; i++) {
 
         // Remove " kr" from price string, then makes int out of the price
         var pricePrItem = parseInt(selectedArticles[i].price.slice(0, -3))
 
+        // Get the number chosen for the article
         var numberOfItems = parseInt(selectedArticles[i].number)
+
+        // Add price of the article to the total
         newPrice += numberOfItems*pricePrItem
     }
 
+    // Create row in table for displaying the total price
     var newTotalPriceLine = document.createElement("TR")
     newTotalPriceLine.setAttribute('id', 'totalPriceLine')
 
+    // Add empty cells
     newTotalPriceLine.appendChild(document.createElement("TD"))
     newTotalPriceLine.appendChild(document.createElement("TD"))
     newTotalPriceLine.appendChild(document.createElement("TD"))
 
+    // Add total price cell
     var totalPrice = document.createElement("TD")
     totalPrice.setAttribute('id', "totalPrice")
     totalPrice.innerHTML =  newPrice + " kr"
-
     newTotalPriceLine.appendChild(totalPrice)
 
+    // Add the row to the table in the large shopping cart. This will always be the last row in the table.
     cartTable.appendChild(newTotalPriceLine)
+
+
+    // Similar, but for the small shopping cart
 
     var smallCartOldTotalPriceLine = document.getElementById("smallCartTotalPriceLine")
     smallCartOldTotalPriceLine.remove()
@@ -353,26 +391,33 @@ function updateTotalPrice() {
     
 }
 
+// Displays the article picture as a "pop-up" picture.
 function displayPicture(articleId) {
+    // Get the modal divison. This is set to display: none, so we want to change that.
     var modalDivision = document.getElementById('modalDivision'+articleId)
     modalDivision.style.display = "block"
 
+    // Adds image source to the modal image. This ensures that the image is not loaded before the user clicks on the image.
     var modalImage = document.getElementById('imageModal'+articleId)
     modalImage.src = articles[articleId].image_loc
 
+    // Add the caption of the article.
     var modalCaption = document.getElementById('modalCaption'+articleId)
     modalCaption.innerHTML = articles[articleId].description
 }
 
+// Close the modal image
 function closeModal(articleId) {
     var modalDivision = document.getElementById('modalDivision'+articleId)
     modalDivision.style.display = "none";
 }
 
+// Show the small shopping cart
 function showShoppingCart() {
     document.getElementById("smallCart").style.display = "block"
 }
 
+// Close the small shopping cart
 function closeSmallCart() {
     document.getElementById("smallCart").style.display = "none"
 }
