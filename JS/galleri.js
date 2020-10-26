@@ -1,6 +1,14 @@
 let parent = document.getElementById("right");
 
 function main(bilde) {
+
+    if (window.innerWidth <= 800){
+        console.log("Test5")
+        document.getElementById("right").style.display = "block";
+        document.getElementById("right").style.visibility = "visible";
+    }
+
+
     console.log('test3')
     if (parent.querySelector("img")!= null) {
         if (bilde.src === parent.querySelector("img").src) {
@@ -19,7 +27,7 @@ function main(bilde) {
         }
 
     }
-    if (parent.children.length != 0) {
+    if (parent.children.length !== 0) {
         while (parent.children.length > 0) {
             parent.removeChild(parent.lastChild)
         }
