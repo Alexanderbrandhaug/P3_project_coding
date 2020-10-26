@@ -20,14 +20,16 @@ function main(bilde) {
             while (parent.children.length > 0) {
                 parent.removeChild(parent.lastChild)
             }
-                let node = document.createElement("h1");
-                node.innerText = "Velkommen til galleriet!";
-                let node2 = document.createElement("p");
-                node.innerText = "Velkommen til galleriet!"
-                node2.innerText = "Trykk på et bilde for å se det større. Trykk på samme bilde igjen for å ta det bort."
-                parent.appendChild(node);
-                parent.appendChild(node2)
-                return;
+            let node = document.createElement("h1");
+            node.innerText = "Velkommen til galleriet!";
+            let node2 = document.createElement("p");
+            node.innerText = "Velkommen til galleriet!"
+            node2.innerText = "Trykk på et bilde for å se det større. Trykk på samme bilde igjen for å ta det bort."
+            let node3 = document.createElement("div");
+            node3.appendChild(node);
+            node3.appendChild(node2);
+            parent.appendChild(node3);
+            return;
             }
 
         }
