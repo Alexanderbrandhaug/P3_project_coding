@@ -40,7 +40,7 @@ function main(bilde) {
     }
 }
 
-function close() {
+function closeFunction() {
     document.getElementById("right").style.display = "none";
     document.getElementById("button_div").style.visibility = "hidden";
     console.log("knapp");
