@@ -9,8 +9,10 @@ function main(bilde) {
             let node = document.createElement("h1");
             node.innerText = "Velkommen til galleriet!";
             let node2 = document.createElement("p");
-            node.innerText = "Her kan du se bilder av tidligere arbeid."
+            node.innerText = "Velkommen til galleriet!"
+            node2.innerText = "Trykk på et bilde for å se det større. Trykk på samme bilde igjen for å ta det bort."
             parent.appendChild(node);
+            parent.appendChild(node2)
             return;
         }
 
