@@ -51,10 +51,12 @@ function menuForm() {
     }
 }
 
-var menuIcon = document.getElementById("menuIcon")
-if (menuIcon.style.display == "none") {
-    menuform.style.display == "none"
+function checkWindowWidth() {
+    if (screen.width > "800") {
+        menuform.style.display = "none"
+    }
 }
+window.onresize = checkWindowWidth
 
 
 // Increase icon size
