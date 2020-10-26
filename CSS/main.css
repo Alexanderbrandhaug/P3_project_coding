@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 *{    
-    font-family: 'Roboto','Trebuchet MS', Helvetica, sans-serif;
+    font-family: 'Roboto', Helvetica, sans-serif;
 }
 
 
@@ -33,7 +33,7 @@ body {
     }
 
 
-.navpage {   
+.navpage, .menupage{   
     position: relative;
     color:white; 
     text-decoration:none;
@@ -50,6 +50,12 @@ body {
     top:-2px;
 }
 
+
+#menuIcon{
+    display:none;
+    width:50px;
+    height: auto;
+}
 
 #footer {
     color: white;
@@ -114,6 +120,9 @@ body {
 }
 
 
+#menuform, .menupage{
+    display:none;
+}
 
 
 
@@ -250,8 +259,17 @@ body {
         display: none;
     }
     #contact-form {
-        max-width: 80%;
-        
+        max-width: 80%;   
     }
     
+}
+
+
+@media (max-width: 800px) {
+    .whiteLine, .navpage{
+        display: none;
+    }
+    #menuIcon, .menupage{
+        display:block
+    }
 }
