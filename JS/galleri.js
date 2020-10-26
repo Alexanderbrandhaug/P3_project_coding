@@ -1,6 +1,7 @@
 let parent = document.getElementById("right");
 
 function main(bilde) {
+    console.log('test3')
     if (parent.querySelector("img")!= null) {
         if (bilde.src === parent.querySelector("img").src) {
             while (parent.children.length > 0) {
@@ -13,6 +14,7 @@ function main(bilde) {
             node2.innerText = "Trykk på et bilde for å se det større. Trykk på samme bilde igjen for å ta det bort."
             parent.appendChild(node);
             parent.appendChild(node2)
+            console.log('test1')
             return;
         }
 
@@ -25,6 +27,7 @@ function main(bilde) {
         node.src = bilde.src;
         parent.appendChild(node);
         node.id = "current_picture"
+        console.log('test2')
     }
 }
 
