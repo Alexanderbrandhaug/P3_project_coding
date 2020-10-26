@@ -65,6 +65,7 @@ transform: none;
 }
 #right {
   background-color: rgb(255, 255, 255);
+  width: 100%;
   display: none;
 }
 #right p, h1{
