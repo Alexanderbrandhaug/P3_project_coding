@@ -6,6 +6,7 @@ function main(bilde) {
         console.log("Test5")
         document.getElementById("right").style.display = "block";
         document.getElementById("right").style.visibility = "visible";
+        document.getElementById("button_div").style.visibility = "visible";
     }
 
 
@@ -39,7 +40,8 @@ function main(bilde) {
     }
 }
 
-function testing() {
-    document.getElementById("right").innerHTML ="";
-    document.getElementById("right").style.position = 'absolute';
+function close() {
+    document.getElementById("right").style.display = "none";
+    document.getElementById("button_div").style.visibility = "hidden";
+    console.log("knapp");
 }

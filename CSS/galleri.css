@@ -86,7 +86,7 @@ transform: none;
   visibility: visible;
 }*/
 #button_div {
-  visibility: visible;
+  visibility: hidden;
 }
 
 }
