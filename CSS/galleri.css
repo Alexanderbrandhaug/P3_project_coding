@@ -44,7 +44,7 @@ transform: none;
 }
 
 #button_div {
-  visibility: hidden;
+  display: none;
 }
 
 #button {
@@ -67,7 +67,7 @@ transform: none;
 }
 #right {
   background-color: rgba(255, 255, 255, 0.5);
-  width: 100%;
+  width: 100vw;
   display: none;
 }
 #right p, h1{
@@ -83,10 +83,6 @@ transform: none;
 }
 #right img {
   width: 60%;
-}
-
-#button_div {
-  visibility: hidden;
 }
 
 }

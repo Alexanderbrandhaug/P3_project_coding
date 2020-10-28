@@ -1,11 +1,19 @@
 let parent = document.getElementById("right");
 
+let changeScreenSizeOnce = false;
+const responsiveWidth = 800;
+
+setInterval(check_screen_galleri, 100);
+
 function main(bilde) {
     //For smaller screens (modularity)
     if (window.innerWidth <= 800){
         document.getElementById("right").style.display = "block";
-        document.getElementById("right").style.visibility = "visible";
-        document.getElementById("button_div").style.visibility = "visible";
+        /*document.getElementById("right").style.visibility = "visible";*/
+        document.getElementById("button_div").style.display = "block";
+        /*document.getElementById("button_div").style.zIndex = "100";
+        document.getElementById("button_div").style.width = document.getElementById("button_div").querySelector("button").offsetWidth.toString() + "px";
+        document.getElementById("button_div").style.visibility = "visible";*/
 
         let node = document.createElement("img");
         node.src = bilde.src;
@@ -42,7 +50,7 @@ function main(bilde) {
             let node = document.createElement("img");
             node.src = bilde.src;
             parent.appendChild(node);
-            node.id = "current_picture"
+            node.id = "current_picture";
         }
 
     }
@@ -52,5 +60,49 @@ function main(bilde) {
 function closeFunction() {
     document.getElementById("right").style.display = "none";
     document.getElementById("right").innerHTML = "";
-    document.getElementById("button_div").style.visibility = "hidden";
+    document.getElementById("button_div").style.display = "none";
+}
+
+function check_screen_galleri() {
+    if (window.innerWidth > responsiveWidth){
+        let right = document.getElementById("right");
+        if (right.style.display === "" || right.style.display === "none") {
+            right.style.display = "block";
+            document.getElementById("button_div").style.display = "none";
+
+
+
+            if (parent.children.length === 0) {
+            //After removing everything in the div it will make sure to put the text back
+            let node = document.createElement("h1");
+            node.innerText = "Velkommen til galleriet!";
+            let node2 = document.createElement("p");
+            node.innerText = "Velkommen til galleriet!"
+            node2.innerText = "Trykk på et bilde for å se det større. Trykk på samme bilde igjen for å ta det bort."
+            let node3 = document.createElement("div");
+            node3.appendChild(node);
+            node3.appendChild(node2);
+            parent.appendChild(node3);
+            return;
+            }
+
+            console.log(changeScreenSizeOnce)
+
+            changeScreenSizeOnce = true;
+        } else if (!changeScreenSizeOnce) {
+            if (right.querySelector("img") != null) {
+                right.removeChild(right.querySelector("img"));
+            }
+            right.style.display = "none";
+        }
+        document.getElementById("button_div").style.display = "none";
+    } else {
+        let right = document.getElementById("right");
+        if (right.style.display === "block" && changeScreenSizeOnce === true) {
+            right.style.display = "none";
+            /*document.getElementById("button_div").style.display = "block";*/
+            console.log(changeScreenSizeOnce)
+            changeScreenSizeOnce = false;
+        }
+    }
 }
