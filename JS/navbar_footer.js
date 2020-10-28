@@ -16,13 +16,15 @@ window.onload = pagebar;
 // Creates a pop-up menu (small screen feature)
 var menuform = document.createElement("div")
 menuform.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
-menuform.style.position = "fixed"
-menuform.style.width = "140px"
-menuform.style.height = "200px"
-menuform.style.top = "50px"
-menuform.style.left = "0px"
-menuform.style.zIndex = "3"
-menuform.style.display = "none"
+menuform.style.position = "fixed";
+menuform.style.width = "140px";
+menuform.style.height = "200px";
+menuform.style.top = "50px";
+menuform.style.left = "0px";
+menuform.style.zIndex = "3";
+menuform.style.display = "none";
+menuform.style.textAlign = "center";
+menuform.style.marginLeft = "calc((100% - 140px)/2)";
 
 var navbar = document.getElementById("navbar")
 navbar.appendChild(menuform)

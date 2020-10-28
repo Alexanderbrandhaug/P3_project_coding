@@ -271,7 +271,11 @@ body {
         display: none;
     }
     #menuIcon, .menupage{
-        display:block
+        display:block;
+    }
+
+    #menuIcon {
+        margin-left: calc((100% - 50px)/2);
     }
 
     #left {
