@@ -16,7 +16,7 @@ body, html {
     height:100%;
     opacity:0%;
     background-color:white;
-    animation-duration: 2s;  
+    animation-duration: 2s;
 }
 
 #navbar{
@@ -31,13 +31,14 @@ body, html {
 }
 
 #welcomeText{
-    font-size: 17px;
+    font-size: 22px;
     color:white;
     width:200px;
     position: fixed;
     left:-100%;
-    top:20%;
+    top:18%;
     animation-duration: 4s;
+    white-space: nowrap;
 
 }
 
@@ -64,9 +65,3 @@ body, html {
     82.5%{left:5%;}
     100%{left:10%;}
 }
-
-
-
-
-
-
