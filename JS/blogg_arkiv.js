@@ -110,6 +110,7 @@ function rotate(x) {
 }
 
 function open_arkiv(x) {
+
     let arkiv = document.getElementById("right");
     let knapp;
     if (x.nodeName === "A"){
@@ -133,7 +134,10 @@ function open_arkiv(x) {
         x.innerText = "Åpne arkiv";
         x.style.border = "";
     }
-    years.forEach(close_sub_list)
+
+    if (window.innerWidth <= responsiveWidth) {
+            years.forEach(close_sub_list)
+        }
 
 }
 
