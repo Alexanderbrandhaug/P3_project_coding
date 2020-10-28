@@ -5,7 +5,7 @@ body, html {
 .backImg {
     background-position: 50% 50%;
     background-size: cover;
-    background-image: url("../images/forside.jpg");
+    background-image: url("../images/forsidetest5.JPG");
     background-repeat:no-repeat;
     min-height: 100vh;
     }
@@ -31,14 +31,21 @@ body, html {
 }
 
 #welcomeText{
-    font-size: 22px;
+    font-size: 8vw;
     color:white;
-    width:200px;
+    width:100px;
     position: fixed;
     left:-100%;
-    top:18%;
+    margin-left: 22%;
+    top:40%;
     animation-duration: 4s;
     white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    line-height: 100%;
+    padding-bottom: 200px;
+    
+
 
 }
 
