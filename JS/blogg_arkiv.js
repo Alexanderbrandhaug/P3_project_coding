@@ -182,16 +182,21 @@ function open_arkiv(x) {
     if (window.innerWidth <= responsiveWidth && (arkiv.style.display === "" || arkiv.style.display === "none")){
         arkiv.style.display = "block";
         knapp.style.bottom = "";
-        knapp.style.top = "50px";
+        knapp.style.top = "55px";
         x.innerText = "×";
         x.style.fontSize = "25pt";
+        x.style.paddingTop = "0";
+        x.style.width = x.offsetHeight.toString() + "px";
         /*x.style.border = "black solid 3px";*/
     } else if (window.innerWidth <= responsiveWidth) {
         arkiv.style.display = "none";
         knapp.style.top = "";
-        knapp.style.bottom = "50px";
+        knapp.style.bottom = "55px";
         x.innerText = "Åpne arkiv";
         x.style.border = "";
+        x.style.fontSize = "20px";
+        x.style.paddingTop = "10px";
+        x.style.width = "auto";
     }
 
     if (window.innerWidth <= responsiveWidth) {

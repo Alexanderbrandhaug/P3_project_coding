@@ -1,44 +1,6 @@
-/*h1 {
-    font-size: 35px;
-}*/
-
-/*p {
-    font-size: 17px;
-}*/
-
-/*#content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-grow: 1;
-}
-
-#right {
-    display: flex;
-    position: sticky;
-    top: 0;
-    left: 50%;
-    right: 0;
-    min-width: 50%;
-    !*min-height: 100%;*!
-    background-color: #e7e5e6;
-    overflow-y: scroll;
-    margin-bottom: 0;
-}
-#right::-webkit-scrollbar {
-    width: 0;
-}
-
 #left {
-    background-color: #737373;
-    margin-bottom: 0;
-    min-width: 50%;
-    min-height: 100%;
+    padding-top: 0;
 }
-
-#left div:last-child{
-    margin-bottom: 50px;
-}*/
 
 .blogg_content {
     position: relative;
@@ -67,6 +29,10 @@
     padding-top: 50px;
     margin-top: 0;
 }*/
+
+.blogg_content > h1 {
+    padding-top: 50px;
+}
 
 .blogg_content::after {
     content: "";
@@ -146,8 +112,8 @@ div.rotated {
 
 #arkiv_knapp {
     position: fixed;
-    bottom: 50px;
-    right: 0px;
+    bottom: 55px;
+    right: 5px;
     display: none;
 }
 
@@ -157,6 +123,7 @@ div.rotated {
     border-radius: 10px;
     text-align: center;
     padding: 10px;
+    font-size: 20px;
 }
 
 #arkiv_knapp > button:hover {
