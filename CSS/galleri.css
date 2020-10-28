@@ -57,6 +57,10 @@ transform: none;
   font-size: 15pt;
 }
 
+#right p {
+  margin: 30px;
+}
+
 @media screen and (max-width: 800px) {
 #left {
   width: 100%;
