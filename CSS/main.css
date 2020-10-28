@@ -272,6 +272,7 @@ body {
     }
     #menuIcon, .menupage{
         display:block;
+        cursor: pointer;
     }
 
     #menuIcon {
