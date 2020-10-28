@@ -1,10 +1,5 @@
 
 #right {
-  /*width: 50%;
-  min-height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;*/
   text-align: center;
 }
 
@@ -17,8 +12,6 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-
-/* Create four equal columns that sits next to each other */
 
 .column {
   flex: 25%;
@@ -50,23 +43,28 @@ border: none;
 transform: none;
 }
 
+#button_div {
+  visibility: hidden;
+}
+
 #button {
   top: 50px;
   right: 0%;
   position: fixed;
   width: 50px;
   height: 50px;
-  visibility: hidden;
   background-color: rgb(190, 190, 190);
-  border: none;
+  border: solid white 3px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
 #left {
   width: 100%;
 }
 #right {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  display: none;
 }
 #right p, h1{
   visibility: hidden;
@@ -82,7 +80,9 @@ transform: none;
 #right img {
   width: 60%;
 }
-#button {
-  visibility: visible;
+
+#button_div {
+  visibility: hidden;
 }
+
 }
