@@ -5,6 +5,10 @@ let dates = []
 
 const parentDate = document.getElementsByClassName("blogg_content")
 
+const responsiveWidth = 700;
+
+let changeScreenSizeOnce = false;
+
 for (let x = 0; x < parentDate.length; x++) {
     // parentDate[x].id = parentDate[x].querySelector("h3").innerText;
     dates.push(parentDate[x].querySelector("h3").innerText.split("."));
@@ -24,6 +28,8 @@ for (let x = 0; x < parentDate.length; x++) {
 }
 
 years.forEach(make_list);
+
+setInterval(check_screen, 100);
 
 function make_list(x){
     let node = document.createElement("li");
@@ -47,7 +53,7 @@ function create_sub_list(x) {
 
     if (x.name !== "extended"){
         let childList = document.createElement("ul");
-        childList.onclick = function() {};
+        /*childList.onclick = function() {};*/
 
         for (let y = 0; y < months.length; y++){
             let child = document.createElement("li");
@@ -62,33 +68,16 @@ function create_sub_list(x) {
 
         x.name = "extended";
         addHeading(x);
-        rotate(x)
+        rotate(x);
 
     }
     else {
-        x.removeChild(x.lastChild);
-        x.name = "closed";
-        rotate(x)
+        close_sub_list(x);
     }
     /*console.log("Test")*/
 }
 
 function addHeading(z) {
-
-    // let dates = []
-    //
-    // for (let x = 0; x < parentDate.length; x++) {
-    //     // parentDate[x].id = parentDate[x].querySelector("h3").innerText;
-    //     dates.push(parentDate[x].querySelector("h3").innerText.split("."));
-    //
-    //     let dateId = "";
-    //     for (let y = 0; y < dates[x].length; y++){
-    //         dates[x][y] = parseInt(dates[x][y]);
-    //         dateId += dates[x][y].toString();
-    //     }
-    //     console.log(dateId);
-    //     parentDate[x].id = dateId;
-    // }
 
     for (let x = 0; x < dates.length; x++) {
         if (z.querySelector("button").id == dates[x][2]){
@@ -97,6 +86,7 @@ function addHeading(z) {
             let a = document.createElement("a");
             a.href = "#"+ dates[x][0].toString() + dates[x][1].toString() + dates[x][2].toString();
             a.innerText = parentDate[x].querySelector("h1").innerText;
+            a.addEventListener("click", function() {open_arkiv(this)})
             node.appendChild(a);
             newList.appendChild(node);
             document.getElementById(dates[x][2]).parentNode.querySelector("ul").children.item(dates[x][1] - 1).appendChild(newList);
@@ -114,5 +104,60 @@ function rotate(x) {
         div.className = "normal";
     } else {
         div.className = "rotated";
+    }
+}
+
+function open_arkiv(x) {
+    let arkiv = document.getElementById("right");
+    let knapp;
+    if (x.nodeName === "A"){
+        knapp = document.getElementById("arkiv_knapp")
+        x = knapp.getElementsByTagName("button")[0];
+    } else {
+        knapp = x.parentElement;
+    }
+
+    if (window.innerWidth <= responsiveWidth && (arkiv.style.display === "" || arkiv.style.display === "none")){
+        arkiv.style.display = "block";
+        knapp.style.bottom = "";
+        knapp.style.top = "50px";
+        x.innerText = "Lukk";
+        x.style.border = "black solid 3px";
+    } else if (window.innerWidth <= responsiveWidth) {
+        arkiv.style.display = "none";
+        knapp.style.top = "";
+        knapp.style.bottom = "50px";
+        x.innerText = "Åpne arkiv";
+        x.style.border = "";
+    }
+    years.forEach(close_sub_list)
+
+}
+
+function close_sub_list(x) {
+    if (typeof x === "number"){
+        x = document.getElementById(x).parentElement;
+    }
+    if (x.children.length >= 2 && window.innerWidth <= responsiveWidth) {
+        x.removeChild(x.lastChild);
+        x.name = "closed";
+        rotate(x);
+    }
+
+}
+
+function check_screen() {
+    if (window.innerWidth > responsiveWidth){
+        let arkiv = document.getElementById("right");
+        if (arkiv.style.display === "" || arkiv.style.display === "none") {
+            arkiv.style.display = "block";
+            changeScreenSizeOnce = true;
+        }
+    } else {
+        let arkiv = document.getElementById("right");
+        if (arkiv.style.display === "block" && changeScreenSizeOnce === true) {
+            arkiv.style.display = "none";
+            changeScreenSizeOnce = false;
+        }
     }
 }

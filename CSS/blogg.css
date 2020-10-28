@@ -144,8 +144,40 @@ div.rotated {
     animation: reverse_rotating 0.25s linear 0s 1 normal forwards;
 }
 
+#arkiv_knapp {
+    position: fixed;
+    bottom: 50px;
+    right: 0px;
+    display: none;
+}
+
+#arkiv_knapp > button {
+    background-color: #e7e5e6;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+#arkiv_knapp > button:hover {
+    background-color: #cfcfcf;
+    cursor: pointer;
+}
+
+#arkiv_knapp > button:active {
+    background-color: #bababa;
+}
+
 @media (max-width: 700px) {
     .blogg_content {
         width: 94%;
+    }
+
+    #arkiv_knapp {
+        display: block;
+    }
+
+    #right {
+        width: 100%;
     }
 }
