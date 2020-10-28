@@ -51,22 +51,20 @@ function create_sub_list(x) {
 
     x = x.parentNode;
 
-
-
     if (x.name !== "extended"){
         let childList = document.createElement("ul");
         /*childList.onclick = function() {};*/
 
         for (let y = 0; y < months.length; y++){
-            let child = document.createElement("li");
+            /*let child = document.createElement("li");
             child.innerText = months[y];
             child.name = months[y];
             child.className += "insertLine";
             childList.appendChild(child);
-            waitAndAdd(child, y);
+            waitAndAdd(child, y);*/
         }
 
-        x.appendChild(childList);
+        /*x.appendChild(childList);*/
 
         x.name = "extended";
         addHeading(x);
@@ -80,24 +78,85 @@ function create_sub_list(x) {
 }
 
 function addHeading(z) {
-
     for (let x = 0; x < dates.length; x++) {
+        /*console.log(x);*/
+
         if (z.querySelector("button").id == dates[x][2]){
-            let newList = document.createElement("ul")
+
+            let listMonths;
+
+            if (z.children.length >= 2){
+                listMonths = z.querySelector("ul");
+            } else {
+                listMonths = document.createElement("ul");
+                z.appendChild(listMonths);
+            }
+            /*console.log(listMonths);*/
+
+            let hasMonth = false;
+            let hasLinkList = false;
+            let indexMonth;
+
+            // Checks if a month already is in the list of months, and if that would be the case it sets hasMonth to true
+            // Also checks if that month has a linkList and sets it to true if it has
+            for (let y = 0; y < listMonths.children.length; y++) {
+                /*console.log(listMonths.children[y].innerText)*/
+                if (listMonths.children[y].innerText.includes(months[dates[x][1] - 1])) {
+                    /*console.log(listMonths.children[y].innerText)*/
+                    hasMonth = true;
+                    indexMonth = y;
+                    if (listMonths.children[y].querySelector("ul") != null) {
+                        hasLinkList = true;
+                    }
+                }
+            }
+
+
+            /*console.log(hasLinkList);*/
+            /*console.log(hasMonth);*/
+
+            let child;
+
+            if (hasMonth) {
+                child = listMonths.children[indexMonth];
+            } else {
+                child = document.createElement("li");
+                child.innerText = months[dates[x][1] - 1];
+                child.name = months[dates[x][1] - 1];
+                child.className += "insertLine";
+                listMonths.appendChild(child);
+            }
+
+
+            /*console.log(child);*/
+            waitAndAdd(child, x);
+
+            let linkList;
+
+
+            // Checks if a given month has link-list, if yes, then assign it to linkList. If not, then create a linkList
+            if (hasLinkList) {
+                linkList = listMonths.children[indexMonth].querySelector("ul");
+            } else {
+                linkList = document.createElement("ul");
+                for (let y = 0; y < listMonths.children.length; y++) {
+                    if (listMonths.children[y].innerText.includes(months[dates[x][1] - 1])){
+                        listMonths.children[y].appendChild(linkList);
+                        break;
+                    }
+                }
+            }
+
             let node = document.createElement("li");
             let a = document.createElement("a");
             a.href = "#"+ dates[x][0].toString() + dates[x][1].toString() + dates[x][2].toString();
             a.innerText = parentDate[x].querySelector("h1").innerText;
             a.addEventListener("click", function() {open_arkiv(this)})
             node.appendChild(a);
-            newList.appendChild(node);
-            document.getElementById(dates[x][2]).parentNode.querySelector("ul").children.item(dates[x][1] - 1).appendChild(newList);
+            linkList.appendChild(node);
+
         }
-
-
     }
-
-    /*console.log(dates)*/
 }
 
 function rotate(x) {
