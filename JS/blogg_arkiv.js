@@ -8,6 +8,7 @@ const parentDate = document.getElementsByClassName("blogg_content")
 const responsiveWidth = 800;
 
 let changeScreenSizeOnce = false;
+let wasOpen = false;
 
 for (let x = 0; x < parentDate.length; x++) {
     // parentDate[x].id = parentDate[x].querySelector("h3").innerText;
@@ -188,7 +189,8 @@ function open_arkiv(x) {
         x.style.paddingTop = "0";
         x.style.width = x.offsetHeight.toString() + "px";
         /*x.style.border = "black solid 3px";*/
-    } else if (window.innerWidth <= responsiveWidth) {
+        wasOpen = true;
+    } else if (window.innerWidth <= responsiveWidth && arkiv.style.display === "block") {
         arkiv.style.display = "none";
         knapp.style.top = "";
         knapp.style.bottom = "55px";
@@ -197,6 +199,7 @@ function open_arkiv(x) {
         x.style.fontSize = "20px";
         x.style.paddingTop = "10px";
         x.style.width = "auto";
+        wasOpen = false;
     }
 
     if (window.innerWidth <= responsiveWidth) {
@@ -226,6 +229,20 @@ function check_screen() {
         if (arkiv.style.display === "" || arkiv.style.display === "none") {
             arkiv.style.display = "block";
             changeScreenSizeOnce = true;
+        } else if (wasOpen) {
+            arkiv.style.display = "none";
+
+            let knapp = document.getElementById("arkiv_knapp")
+            let x = knapp.getElementsByTagName("button")[0];
+            knapp.style.top = "";
+            knapp.style.bottom = "55px";
+            x.innerText = "Åpne arkiv";
+            x.style.border = "";
+            x.style.fontSize = "20px";
+            x.style.paddingTop = "10px";
+            x.style.width = "auto";
+
+            wasOpen = false;
         }
     } else {
         let arkiv = document.getElementById("right");
