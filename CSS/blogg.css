@@ -59,7 +59,7 @@ p {
 }
 
 .blogg_content > img {
-    max-width: 50%;
+    max-width: 75%;
     margin: 0 auto 1vh;
 }
 
@@ -142,4 +142,10 @@ div.normal {
 
 div.rotated {
     animation: reverse_rotating 0.25s linear 0s 1 normal forwards;
+}
+
+@media (max-width: 700px) {
+    .blogg_content {
+        width: 94%;
+    }
 }
