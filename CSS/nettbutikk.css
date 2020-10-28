@@ -140,8 +140,8 @@
 }
 
 #summary {
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid;
+    border-color: black; */
     margin: 20px;
     width: calc(50vw - 40px); /*50 view width - 20px(margin) * 2 (both sides) */
     text-align: center;
