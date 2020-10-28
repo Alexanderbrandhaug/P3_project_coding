@@ -121,8 +121,9 @@ function open_arkiv(x) {
         arkiv.style.display = "block";
         knapp.style.bottom = "";
         knapp.style.top = "50px";
-        x.innerText = "Lukk";
-        x.style.border = "black solid 3px";
+        x.innerText = "×";
+        x.style.fontSize = "25pt";
+        /*x.style.border = "black solid 3px";*/
     } else if (window.innerWidth <= responsiveWidth) {
         arkiv.style.display = "none";
         knapp.style.top = "";
