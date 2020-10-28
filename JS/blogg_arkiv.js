@@ -5,7 +5,7 @@ let dates = []
 
 const parentDate = document.getElementsByClassName("blogg_content")
 
-const responsiveWidth = 700;
+const responsiveWidth = 800;
 
 let changeScreenSizeOnce = false;
 
@@ -50,6 +50,8 @@ function waitAndAdd(x, y) {
 function create_sub_list(x) {
 
     x = x.parentNode;
+
+
 
     if (x.name !== "extended"){
         let childList = document.createElement("ul");
@@ -143,8 +145,11 @@ function close_sub_list(x) {
         x.removeChild(x.lastChild);
         x.name = "closed";
         rotate(x);
+    } else if (x.children.length >= 2 && x.name === "extended") {
+        x.removeChild(x.lastChild);
+        x.name = "closed";
+        rotate(x);
     }
-
 }
 
 function check_screen() {
