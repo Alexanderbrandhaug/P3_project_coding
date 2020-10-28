@@ -39,7 +39,7 @@
 position: fixed;
 right: 12.5%;
 top: 20%;
-border: none;
+border: 5px solid white;
 transform: none;
 }
 

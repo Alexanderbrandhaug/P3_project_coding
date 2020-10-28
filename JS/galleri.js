@@ -47,8 +47,6 @@ function main(bilde) {
 
     }
 
-
-
 }
 //Function for button. Removes eveything inside right div
 function closeFunction() {
