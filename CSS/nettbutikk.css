@@ -250,4 +250,14 @@
     }
 }
 
+@media (max-width:500px) {
+    .article-description{
+        display: none;
+    }
+    .sizeDD, .numberDD, .addToCartBtn, .checkOutBtn {
+        min-width: 130px;
+    }
+        
+}
+
 
