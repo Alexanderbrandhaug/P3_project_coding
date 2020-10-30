@@ -1,5 +1,16 @@
 #left {
-    padding-top: 0;
+    width: 60%;
+}
+
+#right {
+    min-width: 40%;
+    /*flex-basis: 40%;*/
+    width: 40%;
+    left: 60%;
+}
+
+#content {
+
 }
 
 .blogg_content {
@@ -8,7 +19,7 @@
     text-align: center;
     margin-left: 3vw;
     margin-right: 3vw;
-    width: 44vw; /* 50% of view width (vw) - 3%*2 of vw (from margin) */
+    width: 88%; /* 50% of view width (vw) - 3%*2 of vw (from margin) */
 }
 
 .blogg_content > p:last-child {
@@ -142,6 +153,10 @@ div.rotated {
 
     #arkiv_knapp {
         display: block;
+    }
+
+    #left {
+        width: 100%;
     }
 
     #right {
