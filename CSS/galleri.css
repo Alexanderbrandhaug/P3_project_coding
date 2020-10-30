@@ -27,7 +27,11 @@
 
 .galleryImg:hover {
   transform: scale(1.1);
-  border: 5px solid white;
+  border-color: white;
+}
+
+.galleryImg {
+  border: 5px solid transparent;
 }
 
 #right img {
