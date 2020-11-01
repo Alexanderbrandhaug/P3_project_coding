@@ -28,6 +28,7 @@
 .galleryImg:hover {
   transform: scale(1.1);
   border-color: white;
+  cursor: pointer;  
 }
 
 .galleryImg {

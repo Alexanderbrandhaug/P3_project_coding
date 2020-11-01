@@ -79,6 +79,7 @@ body {
     width:auto;
     height:35px;
     z-index:10;
+    cursor: pointer;  
 }
 
 #iconDiv{
