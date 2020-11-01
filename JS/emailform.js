@@ -2,12 +2,12 @@
 
 
 var iconDiv = document.getElementById("iconDiv")
-<!-- oppretter skjemaet-->
+//creates the contact-form
 var contactForm = document.createElement("form")
 contactForm.setAttribute("id", "contact-form")
 contactForm.setAttribute("method", "post")
 contactForm.setAttribute("action", " ")
-<!-- oppretter tekstfelt til navn -->
+//Creates the textfield to input name
 var nameInput = document.createElement("INPUT")
 nameInput.setAttribute("id", "Email_name")
 nameInput.setAttribute("name", "Navn")
@@ -16,7 +16,7 @@ nameInput.setAttribute("class", "form-control")
 nameInput.setAttribute("placeholder", "Skriv inn ditt navn")
 nameInput.setAttribute("size", "50")
 nameInput.setAttribute("required", true)
-<!-- oppretter tekstfelt til Epostadresse -->
+//Creates the textfield to input Email-adress
 var emailInput = document.createElement("INPUT")
 emailInput.setAttribute("id", "Email_input")
 emailInput.setAttribute("name", "E-post")
@@ -25,7 +25,7 @@ emailInput.setAttribute("class", "form-control")
 emailInput.setAttribute("placeholder", "Skriv inn din Epostadresse")
 emailInput.setAttribute("size", "50")
 emailInput.setAttribute("required", true)
-<!-- oppretter tekstfelt til beskjeden som kunde skriver inn -->
+//Creates the textarea where the user can write his message
 var messageInput = document.createElement("TEXTAREA")
 messageInput.setAttribute("id", "message")
 messageInput.setAttribute("name", "message")
@@ -35,7 +35,7 @@ messageInput.setAttribute("rows", "8")
 messageInput.setAttribute("cols", "50")
 messageInput.setAttribute("size", "50")
 messageInput.setAttribute("required", true)
-<!-- oppretter send knapp -->
+//Creates the submit-button
 var submitBtn = document.createElement("INPUT")
 submitBtn.setAttribute("id", "send")
 submitBtn.setAttribute("type", "submit")
@@ -51,7 +51,7 @@ contactForm.appendChild(submitBtn)
 
 iconDiv.appendChild(contactForm)
 
-<!-- toggle Epost-skjema av/på -->
+//shows and hides the E-mail form.
 
 function emailform() {
   var contactform = document.getElementById("contact-form");
