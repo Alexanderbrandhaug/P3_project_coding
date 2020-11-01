@@ -34,17 +34,13 @@
   border: 5px solid transparent;
 }
 
-#right img {
-  width: 35%;
-}
-
-
 #current_picture {
 position: fixed;
 right: 7.75%;
-top: 20%;
+top: 12.5%;
 border: 5px solid white;
 transform: none;
+width: 35%;
 }
 
 #button_div {
@@ -84,9 +80,6 @@ transform: none;
   top: 20%;
   border: none;
   transform: none;
-}
-#right img {
   width: 60%;
 }
-
 }
