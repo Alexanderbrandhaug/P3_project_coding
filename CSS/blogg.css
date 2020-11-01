@@ -1,10 +1,12 @@
 #left {
     width: 60%;
+    margin-top: 0;
 }
 
 #right {
     width: 40%;
     left: 60%;
+    margin-top: 0;
 }
 
 .blogg_content {
@@ -50,6 +52,11 @@
 
 #arkiv_boks > div {
     margin-bottom: 100px;
+}
+
+#arkiv_boks > div > h1 {
+    padding-top: 50px;
+    margin: 1vh auto;
 }
 
 #arkiv_liste > * {
