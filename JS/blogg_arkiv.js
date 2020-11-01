@@ -13,7 +13,6 @@ let changeScreenSizeOnce = false;
 let wasOpen = false;
 
 for (let x = 0; x < parentDate.length; x++) {
-    // parentDate[x].id = parentDate[x].querySelector("h3").innerText;
     dates.push(parentDate[x].querySelector("h3").innerText.split("."));
 
     let dateId = "";
@@ -26,7 +25,6 @@ for (let x = 0; x < parentDate.length; x++) {
         years.push(dates[x][2]);
     }
 
-    // console.log(dateId);
     parentDate[x].id = dateId;
 }
 
@@ -55,29 +53,13 @@ function create_sub_list(x) {
     x = x.parentNode;
 
     if (x.name !== "extended"){
-        let childList = document.createElement("ul");
-        /*childList.onclick = function() {};*/
-
-        for (let y = 0; y < months.length; y++){
-            /*let child = document.createElement("li");
-            child.innerText = months[y];
-            child.name = months[y];
-            child.className += "insertLine";
-            childList.appendChild(child);
-            waitAndAdd(child, y);*/
-        }
-
-        /*x.appendChild(childList);*/
-
         x.name = "extended";
         addHeading(x);
         rotate(x);
-
     }
     else {
         close_sub_list(x);
     }
-    /*console.log("Test")*/
 }
 
 function addHeading(z) {
@@ -94,7 +76,6 @@ function addHeading(z) {
                 listMonths = document.createElement("ul");
                 z.appendChild(listMonths);
             }
-            /*console.log(listMonths);*/
 
             let hasMonth = false;
             let hasLinkList = false;
@@ -103,9 +84,7 @@ function addHeading(z) {
             // Checks if a month already is in the list of months, and if that would be the case it sets hasMonth to true
             // Also checks if that month has a linkList and sets it to true if it has
             for (let y = 0; y < listMonths.children.length; y++) {
-                /*console.log(listMonths.children[y].innerText)*/
                 if (listMonths.children[y].innerText.includes(months[dates[x][1] - 1])) {
-                    /*console.log(listMonths.children[y].innerText)*/
                     hasMonth = true;
                     indexMonth = y;
                     if (listMonths.children[y].querySelector("ul") != null) {
@@ -113,10 +92,6 @@ function addHeading(z) {
                     }
                 }
             }
-
-
-            /*console.log(hasLinkList);*/
-            /*console.log(hasMonth);*/
 
             let child;
 
@@ -131,7 +106,6 @@ function addHeading(z) {
             }
 
 
-            /*console.log(child);*/
             waitAndAdd(child, x);
 
             let linkList;
@@ -190,7 +164,6 @@ function open_arkiv(x) {
         x.style.fontSize = "25pt";
         x.style.paddingTop = "0";
         x.style.width = x.offsetHeight.toString() + "px";
-        /*x.style.border = "black solid 3px";*/
         wasOpen = true;
     } else if (window.innerWidth <= responsiveWidth && arkiv.style.display === "block") {
         arkiv.style.display = "none";
