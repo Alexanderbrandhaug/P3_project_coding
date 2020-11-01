@@ -125,7 +125,7 @@ option {
 }
 
 /*Shopping cart takes 80% of the width. Spread cells evenly.*/
-#cartTable {
+#cartTable, #smallCartTable {
     min-width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -169,11 +169,16 @@ option {
 #shoppingCartImg {
     width: 50px;
     position: fixed;
-    bottom: 50px;
-    right: 5px;
+    bottom: 55px;
+    right: 10px;
     z-index: 1;
     cursor: pointer;
     display: none;
+}
+
+#shoppingCartImg:hover {
+    transform: scale(1.2,1.2);
+
 }
 
 #smallCart {
@@ -197,12 +202,6 @@ option {
 
 #smallCartTitle {
     font-size: 15pt;
-}
-
-#smallCartTable {
-    min-width: 80%;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 #closeSmallCart {
@@ -230,14 +229,8 @@ option {
     }
 }
 
-/*When screen is smaller than 800px, remove right side and make left side 100% of the screen size*/
-@media (max-width: 800px) {
-    #left {
-        width: 100%;
-    }
-    #right {
-        display: none;
-    }
+
+@media (max-width: 800px) {    
     /*The shopping cart will now be accessd by this image*/
     #shoppingCartImg {
         display: block;
