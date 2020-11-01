@@ -1,9 +1,11 @@
 #left {
+    top: 0;
     width: 60%;
     margin-top: 0;
 }
 
 #right {
+    top: 0;
     width: 40%;
     left: 60%;
     margin-top: 0;
@@ -133,13 +135,6 @@ div.rotated {
 }
 
 @media (max-width: 800px) {
-    .blogg_content {
-        width: 94%;
-    }
-
-    #arkiv_knapp {
-        display: block;
-    }
 
     #left {
         width: 100%;
@@ -147,5 +142,14 @@ div.rotated {
 
     #right {
         width: 100%;
+    }
+
+    .blogg_content {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #arkiv_knapp {
+        display: block;
     }
 }
