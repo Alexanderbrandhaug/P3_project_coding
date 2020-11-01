@@ -8,14 +8,10 @@ const responsiveWidth = 800;
 setInterval(check_screen_galleri, 100);
 
 function main(bilde) {
-    //For smaller screens (modularity)
+    //For smaller screens
     if (window.innerWidth <= 800){
         document.getElementById("right").style.display = "block";
-        /*document.getElementById("right").style.visibility = "visible";*/
         document.getElementById("button_div").style.display = "block";
-        /*document.getElementById("button_div").style.zIndex = "100";
-        document.getElementById("button_div").style.width = document.getElementById("button_div").querySelector("button").offsetWidth.toString() + "px";
-        document.getElementById("button_div").style.visibility = "visible";*/
 
         let node = document.createElement("img");
         node.src = bilde.src;
@@ -72,8 +68,6 @@ function check_screen_galleri() {
             right.style.display = "block";
             document.getElementById("button_div").style.display = "none";
 
-
-
             if (parent.children.length === 0) {
             //After removing everything in the div it will make sure to put the text back
             let node = document.createElement("h1");
@@ -102,7 +96,6 @@ function check_screen_galleri() {
         let right = document.getElementById("right");
         if (right.style.display === "block" && changeScreenSizeOnce === true) {
             right.style.display = "none";
-            /*document.getElementById("button_div").style.display = "block";*/
             console.log(changeScreenSizeOnce)
             changeScreenSizeOnce = false;
         }
