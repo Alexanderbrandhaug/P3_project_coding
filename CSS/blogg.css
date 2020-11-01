@@ -3,19 +3,12 @@
 }
 
 #right {
-    min-width: 40%;
-    /*flex-basis: 40%;*/
     width: 40%;
     left: 60%;
 }
 
-#content {
-
-}
-
 .blogg_content {
     position: relative;
-    color: white;
     text-align: center;
     margin-left: 3vw;
     margin-right: 3vw;
@@ -35,11 +28,6 @@
     max-width: 75%;
     margin: 0 auto 1vh;
 }
-
-/*.blogg_content > h1 {
-    padding-top: 50px;
-    margin-top: 0;
-}*/
 
 .blogg_content > h1 {
     padding-top: 50px;
@@ -61,13 +49,8 @@
 }
 
 #arkiv_boks > div {
-
     margin-bottom: 100px;
 }
-
-/*#arkiv_boks > div > h1 {
-    margin-top: 50px;
-}*/
 
 #arkiv_liste > * {
     text-align: left;
@@ -89,10 +72,6 @@
 #arkiv_liste > li > button:hover {
     cursor: pointer;
 }
-
-/*#arkiv_liste > li:last-child{
-    margin-bottom: 50px;
-}*/
 
 .insertLine {
     opacity: 0;

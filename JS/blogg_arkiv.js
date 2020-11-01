@@ -1,3 +1,5 @@
+// BLOG ARCHIVE FUNCTIONALITY
+
 let years = []
 let months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"]
 

@@ -56,6 +56,7 @@ width: 35%;
   height: 50px;
   border: none;
   font-size: 15pt;
+  cursor: pointer;
 }
 
 #right p {
@@ -67,7 +68,7 @@ width: 35%;
   width: 100%;
 }
 #right {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);  
   width: 100vw;
   display: none;
 }

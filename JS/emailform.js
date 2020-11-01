@@ -1,4 +1,4 @@
-
+// EMAIL FORM FUNCTIONALITY
 
 
 var iconDiv = document.getElementById("iconDiv")

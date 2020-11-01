@@ -1,3 +1,5 @@
+// GALLERY FUNCTIONALITY
+
 let parent = document.getElementById("right");
 
 let changeScreenSizeOnce = false;
