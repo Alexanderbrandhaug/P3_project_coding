@@ -1,13 +1,19 @@
 #left {
-    top: 0;
     width: 60%;
-    margin-top: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 0;
 }
 
 #right {
     top: 0;
     width: 40%;
     left: 60%;
+    padding-top: 50px;
+    margin-bottom: 0;
+}
+
+#content {
     margin-top: 0;
 }
 
@@ -34,7 +40,7 @@
 }
 
 .blogg_content > h1 {
-    padding-top: 50px;
+    padding-top: 25px;
 }
 
 .blogg_content::after {
@@ -57,7 +63,7 @@
 }
 
 #arkiv_boks > div > h1 {
-    padding-top: 50px;
+    padding-top: 25px;
     margin: 1vh auto;
 }
 
