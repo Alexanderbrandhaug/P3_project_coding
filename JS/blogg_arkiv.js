@@ -200,7 +200,7 @@ function open_arkiv(x) {
     // the parent containing it) should be styled in a specific way and look like an X, so everyone understands that it's
     // meant to close the archive. Or else (with the screen width in mind) the button (and the parent containing it)
     // should again be styled in another way and the button should say that it needs to be pressed to open the archive.
-    // It will also set the variable wasOpen depending on the state that it's in.
+    // It will also set the variable wasOpen depending on the state that it's now in
     if (window.innerWidth <= responsiveWidth && (arkiv.style.display === "" || arkiv.style.display === "none")) {
         arkiv.style.display = "block";
         knapp.style.bottom = "";
@@ -222,16 +222,22 @@ function open_arkiv(x) {
         wasOpen = false;
     }
 
+    // Closes the sub lists at the moment when the window opens/closes (this was implemented to fix a animation bug)
     if (window.innerWidth <= responsiveWidth) {
             years.forEach(close_sub_list)
         }
 
 }
 
+// Closes the sub list if it's present
 function close_sub_list(x) {
+    // Depending on what variable/element that is calling this function, it has to set the variable x to the element
+    // that contains the the button for the year that is inputted
     if (typeof x === "number"){
         x = document.getElementById(x).parentElement;
     }
+
+    // Removes the sublist if the conditions for it are met, and rotates the ">" of the button with the sub list
     if (x.children.length >= 2 && window.innerWidth <= responsiveWidth) {
         x.removeChild(x.lastChild);
         x.name = "closed";
@@ -243,7 +249,12 @@ function close_sub_list(x) {
     }
 }
 
+// There were some bugs with the archive, so this function was implemented to "resolve" the problems. It checks the
+// screen width, and if it changes from over to under 800px or the other way around, then it adds and removes the
+// archive based on the previous screen (width)
 function check_screen() {
+
+    //
     if (window.innerWidth > responsiveWidth){
         let arkiv = document.getElementById("right");
         if (arkiv.style.display === "" || arkiv.style.display === "none") {
