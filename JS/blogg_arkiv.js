@@ -1,6 +1,6 @@
 // BLOG ARCHIVE FUNCTIONALITY
-// Jeg har valgt å skrive alt her på engelsk så det skal være mulig å forstå hva jeg har gjort for alle som eventuelt
-// kommer til å lese dette.
+// Jeg (hovedansvarlig for denne js-fila) har valgt å skrive alt her på engelsk så det skal være mulig å forstå hva som
+// er gjort for alle som eventuelt kommer til å lese dette
 
 // Declares an empty list for each year with blog-content
 let years = []
@@ -170,7 +170,7 @@ function addHeading(z) {
     }
 }
 
-// Rotates 
+// Rotates the ">" 90 degrees in the archive year button (points to the right or down depending on it's current state)
 function rotate(x) {
     const div = x.querySelector('div');
     if (div.className === "rotated" || div.className === ""){
@@ -180,10 +180,15 @@ function rotate(x) {
     }
 }
 
+
+// This function controls when the archive should be visible and not, when the screen (width) is smaller or equal to 800px
 function open_arkiv(x) {
 
     let arkiv = document.getElementById("right");
     let knapp;
+
+    // Depending on if you press the button to open/close the archive or press a link, then the element containing the
+    // button should be set to the variable knapp.
     if (x.nodeName === "A"){
         knapp = document.getElementById("arkiv_knapp")
         x = knapp.getElementsByTagName("button")[0];
@@ -191,7 +196,12 @@ function open_arkiv(x) {
         knapp = x.parentElement;
     }
 
-    if (window.innerWidth <= responsiveWidth && (arkiv.style.display === "" || arkiv.style.display === "none")){
+    // If the archive is open and when when the screen (width) is under or equal to 800px, then the archive button (and
+    // the parent containing it) should be styled in a specific way and look like an X, so everyone understands that it's
+    // meant to close the archive. Or else (with the screen width in mind) the button (and the parent containing it)
+    // should again be styled in another way and the button should say that it needs to be pressed to open the archive.
+    // It will also set the variable wasOpen depending on the state that it's in.
+    if (window.innerWidth <= responsiveWidth && (arkiv.style.display === "" || arkiv.style.display === "none")) {
         arkiv.style.display = "block";
         knapp.style.bottom = "";
         knapp.style.top = "55px";
