@@ -49,7 +49,7 @@ years.forEach(make_list);
 setInterval(check_screen, 100);
 
 // Makes a list element with a button that has the text ">" + the inputted year. This button also has a onclick function.
-// The list element is then appended to the archive list (ul) in the html code
+// The list element is then appended to the archive list (ul) in the html code. It also sets the buttons id as the same year
 function make_list(x){
     let node = document.createElement("li");
     let button = document.createElement("button")
@@ -68,7 +68,7 @@ function waitAndAdd(x, y) {
 }
 
 // When the archive year button is pressed then the sub list is created if it isn't already extended. However, if it is,
-// then the list is closed.
+// then the list is closed
 function create_sub_list(x) {
 
     // For convenience sake, x is here redeclared as the "li" element that contains the button
@@ -89,14 +89,17 @@ function create_sub_list(x) {
     }
 }
 
-
+// Creates the sub list and adds the blog headings to it with animations
 function addHeading(z) {
+    // Goes through all the dates
     for (let x = 0; x < dates.length; x++) {
-
+        // Checks if the button that was pressed has the same id (year) that the current date (year) has
         if (z.querySelector("button").id == dates[x][2]){
 
             let listMonths;
 
+            // If the list-element has more than two children, then one should be button and atleat one of the other
+            // should be the container (ul) for the sub-list.
             if (z.children.length >= 2){
                 listMonths = z.querySelector("ul");
             } else {
