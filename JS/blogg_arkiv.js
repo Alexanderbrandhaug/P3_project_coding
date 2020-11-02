@@ -50,11 +50,11 @@ setInterval(check_screen, 100);
 
 // Makes a list element with a button that has the text ">" + the inputted year. This button also has a onclick function.
 // The list element is then appended to the archive list (ul) in the html code. It also sets the buttons id as the same year
-function make_list(x){
+function make_list(year){
     let node = document.createElement("li");
     let button = document.createElement("button")
-    button.innerHTML = "<div style='display: inline-block'>" + ">" + "</div>" + " " + x;
-    button.id = x;
+    button.innerHTML = "<div style='display: inline-block'>" + ">" + "</div>" + " " + year;
+    button.id = year;
     button.type = "button";
     button.onclick = function() {create_sub_list(this)};
 
@@ -63,48 +63,48 @@ function make_list(x){
 }
 
 // This function lets the elements in the sub list to appear one after another with a animation
-function waitAndAdd(x, y) {
-    setTimeout(function() {x.className += " show";}, 50 * y);
+function waitAndAdd(subElement, iteration) {
+    setTimeout(function() {subElement.className += " show";}, 50 * iteration);
 }
 
 // When the archive year button is pressed then the sub list is created if it isn't already extended. However, if it is,
 // then the list is closed
-function create_sub_list(x) {
+function create_sub_list(liWbutton) {
 
-    // For convenience sake, x is here redeclared as the "li" element that contains the button
-    x = x.parentNode;
+    // For convenience sake, liWbutton is here redeclared as the "li" element that contains the button
+    liWbutton = liWbutton.parentNode;
 
     // Checks if the list is extended, if not then it creates the sub list. However, if it's extended, then it closes
     // the sub list
-    if (x.name !== "extended"){
-        x.name = "extended";
+    if (liWbutton.name !== "extended"){
+        liWbutton.name = "extended";
 
-        addHeading(x);
+        addHeading(liWbutton);
 
         // Rotates the ">" in the pressed archive button
-        rotate(x);
+        rotate(liWbutton);
     }
     else {
-        close_sub_list(x);
+        close_sub_list(liWbutton);
     }
 }
 
 // Creates the sub list and adds the blog headings to it with animations
-function addHeading(z) {
+function addHeading(liWbutton) {
     // Goes through all the dates
     for (let x = 0; x < dates.length; x++) {
         // Checks if the button that was pressed has the same id (year) that the current date (year) has
-        if (z.querySelector("button").id == dates[x][2]){
+        if (liWbutton.querySelector("button").id == dates[x][2]){
 
             let listMonths;
 
             // If the list-element has more than two children, then one should be button and at least one of the other
             // should be the container (ul) for the sub-list. Else it should create a new list (ul) and assign it to listMonths
-            if (z.children.length >= 2){
-                listMonths = z.querySelector("ul");
+            if (liWbutton.children.length >= 2){
+                listMonths = liWbutton.querySelector("ul");
             } else {
                 listMonths = document.createElement("ul");
-                z.appendChild(listMonths);
+                liWbutton.appendChild(listMonths);
             }
 
             let hasMonth = false;
@@ -171,8 +171,8 @@ function addHeading(z) {
 }
 
 // Rotates the ">" 90 degrees in the archive year button (points to the right or down depending on it's current state)
-function rotate(x) {
-    const div = x.querySelector('div');
+function rotate(buttonArrow) {
+    const div = buttonArrow.querySelector('div');
     if (div.className === "rotated" || div.className === ""){
         div.className = "normal";
     } else {
@@ -182,18 +182,18 @@ function rotate(x) {
 
 
 // This function controls when the archive should be visible and not, when the screen (width) is smaller or equal to 800px
-function open_arkiv(x) {
+function open_arkiv(archiveToggle) {
 
     let arkiv = document.getElementById("right");
     let knapp;
 
     // Depending on if you press the button to open/close the archive or press a link, then the element containing the
     // button should be set to the variable knapp.
-    if (x.nodeName === "A"){
+    if (archiveToggle.nodeName === "A"){
         knapp = document.getElementById("arkiv_knapp")
-        x = knapp.getElementsByTagName("button")[0];
+        archiveToggle = knapp.getElementsByTagName("button")[0];
     } else {
-        knapp = x.parentElement;
+        knapp = archiveToggle.parentElement;
     }
 
     // If the archive is open and when when the screen (width) is under or equal to 800px, then the archive button (and
@@ -205,20 +205,20 @@ function open_arkiv(x) {
         arkiv.style.display = "block";
         knapp.style.bottom = "";
         knapp.style.top = "55px";
-        x.innerText = "×";
-        x.style.fontSize = "25pt";
-        x.style.paddingTop = "0";
-        x.style.width = x.offsetHeight.toString() + "px";
+        archiveToggle.innerText = "×";
+        archiveToggle.style.fontSize = "25pt";
+        archiveToggle.style.paddingTop = "0";
+        archiveToggle.style.width = archiveToggle.offsetHeight.toString() + "px";
         wasOpen = true;
     } else if (window.innerWidth <= responsiveWidth && arkiv.style.display === "block") {
         arkiv.style.display = "none";
         knapp.style.top = "";
         knapp.style.bottom = "55px";
-        x.innerText = "Åpne arkiv";
-        x.style.border = "";
-        x.style.fontSize = "20px";
-        x.style.paddingTop = "10px";
-        x.style.width = "auto";
+        archiveToggle.innerText = "Åpne arkiv";
+        archiveToggle.style.border = "";
+        archiveToggle.style.fontSize = "20px";
+        archiveToggle.style.paddingTop = "10px";
+        archiveToggle.style.width = "auto";
         wasOpen = false;
     }
 
@@ -230,22 +230,22 @@ function open_arkiv(x) {
 }
 
 // Closes the sub list if it's present
-function close_sub_list(x) {
+function close_sub_list(year) {
     // Depending on what variable/element that is calling this function, it has to set the variable x to the element
     // that contains the the button for the year that is inputted
-    if (typeof x === "number"){
-        x = document.getElementById(x).parentElement;
+    if (typeof year === "number"){
+        year = document.getElementById(year).parentElement;
     }
 
     // Removes the sublist if the conditions for it are met, and rotates the ">" of the button with the sub list
-    if (x.children.length >= 2 && window.innerWidth <= responsiveWidth) {
-        x.removeChild(x.lastChild);
-        x.name = "closed";
-        rotate(x);
-    } else if (x.children.length >= 2 && x.name === "extended") {
-        x.removeChild(x.lastChild);
-        x.name = "closed";
-        rotate(x);
+    if (year.children.length >= 2 && window.innerWidth <= responsiveWidth) {
+        year.removeChild(year.lastChild);
+        year.name = "closed";
+        rotate(year);
+    } else if (year.children.length >= 2 && year.name === "extended") {
+        year.removeChild(year.lastChild);
+        year.name = "closed";
+        rotate(year);
     }
 }
 
@@ -254,7 +254,9 @@ function close_sub_list(x) {
 // archive based on the previous screen (width)
 function check_screen() {
 
-    //
+    // If the screen width goes from under or equal to 800px, to over, then it will show the archive if it was closed.
+    // If it was open, then it would be closed, but then opened again the next time this function executes. However, if
+    // it's the other way around (regarding the screen/window width), then the archive would be closed
     if (window.innerWidth > responsiveWidth){
         let arkiv = document.getElementById("right");
         if (arkiv.style.display === "" || arkiv.style.display === "none") {
