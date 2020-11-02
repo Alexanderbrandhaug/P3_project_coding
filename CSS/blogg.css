@@ -40,7 +40,7 @@
 }
 
 .blogg_content > h1 {
-    padding-top: 25px;
+    padding-top: 50px;
 }
 
 .blogg_content::after {
@@ -63,7 +63,7 @@
 }
 
 #arkiv_boks > div > h1 {
-    padding-top: 25px;
+    padding-top: 50px;
     margin: 1vh auto;
 }
 

@@ -1,30 +1,44 @@
 // BLOG ARCHIVE FUNCTIONALITY
+// Jeg har valgt å skrive alt her på engelsk så det skal være mulig å forstå hva jeg har gjort for alle som eventuelt
+// kommer til å lese dette.
 
+// Declares an empty list for each year with blog-content
 let years = []
+
+// Declares a list with all the months in a year, so that it can be used dynamically later
 let months = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"]
 
+// Declares an empty list that will store all of the blog dates
 let dates = []
 
+// Gets all the blog posts
 const parentDate = document.getElementsByClassName("blogg_content")
 
+// Declares a variable that will be used to help the site with being responsive
 const responsiveWidth = 800;
 
+// The next two variables help with the responsiveness of the website when resizing the browser
 let changeScreenSizeOnce = false;
 let wasOpen = false;
 
+// Goes through all blog posts and adds their dates to the dates-list, and gives each blog post a id based on the date
 for (let x = 0; x < parentDate.length; x++) {
+    // Adds all the dates to the dates list and separates the day, month and year in a sub array/list
     dates.push(parentDate[x].querySelector("h3").innerText.split("."));
 
+    // Creates the current blog post id (day+month+year)
     let dateId = "";
     for (let y = 0; y < dates[x].length; y++){
         dates[x][y] = parseInt(dates[x][y]);
         dateId += dates[x][y].toString();
     }
 
+    // If a blog post's year is not in the years list then it adds it to the years list
     if (years.includes(dates[x][2]) === false) {
         years.push(dates[x][2]);
     }
 
+    // Adds the blog post id to the current blog post
     parentDate[x].id = dateId;
 }
 
