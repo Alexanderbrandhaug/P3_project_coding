@@ -42,10 +42,14 @@ for (let x = 0; x < parentDate.length; x++) {
     parentDate[x].id = dateId;
 }
 
+// Runs the function make_list where each item in the years list is taken as an argument
 years.forEach(make_list);
 
+// Runs the check_screen function each 100ms to keep the site responsive when changing browser size
 setInterval(check_screen, 100);
 
+// Makes a list element with a button that has the text ">" + the inputted year. This button also has a onclick function.
+// The list element is then appended to the archive list (ul) in the html code
 function make_list(x){
     let node = document.createElement("li");
     let button = document.createElement("button")
@@ -58,17 +62,26 @@ function make_list(x){
     document.getElementById("arkiv_liste").appendChild(node)
 }
 
+// This function lets the elements in the sub list to appear one after another with a animation
 function waitAndAdd(x, y) {
     setTimeout(function() {x.className += " show";}, 50 * y);
 }
 
+// When the archive year button is pressed then the sub list is created if it isn't already extended. However, if it is,
+// then the list is closed.
 function create_sub_list(x) {
 
+    // For convenience sake, x is here redeclared as the "li" element that contains the button
     x = x.parentNode;
 
+    // Checks if the list is extended, if not then it creates the sub list. However, if it's extended, then it closes
+    // the sub list
     if (x.name !== "extended"){
         x.name = "extended";
+
         addHeading(x);
+
+        // Rotates the ">" in the pressed archive button
         rotate(x);
     }
     else {
@@ -76,9 +89,9 @@ function create_sub_list(x) {
     }
 }
 
+
 function addHeading(z) {
     for (let x = 0; x < dates.length; x++) {
-        /*console.log(x);*/
 
         if (z.querySelector("button").id == dates[x][2]){
 
