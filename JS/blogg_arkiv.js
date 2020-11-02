@@ -98,8 +98,8 @@ function addHeading(z) {
 
             let listMonths;
 
-            // If the list-element has more than two children, then one should be button and atleat one of the other
-            // should be the container (ul) for the sub-list.
+            // If the list-element has more than two children, then one should be button and at least one of the other
+            // should be the container (ul) for the sub-list. Else it should create a new list (ul) and assign it to listMonths
             if (z.children.length >= 2){
                 listMonths = z.querySelector("ul");
             } else {
@@ -111,8 +111,9 @@ function addHeading(z) {
             let hasLinkList = false;
             let indexMonth;
 
-            // Checks if a month already is in the list of months, and if that would be the case it sets hasMonth to true
-            // Also checks if that month has a linkList and sets it to true if it has
+            // Checks if a month already is in the list of months, and if that would be the case it sets hasMonth to true.
+            // If the month is already in the list, then it set's the month's index to indexMonth. Also checks if that
+            // month has a list with links to the blog posts from that month and sets it to true if it has
             for (let y = 0; y < listMonths.children.length; y++) {
                 if (listMonths.children[y].innerText.includes(months[dates[x][1] - 1])) {
                     hasMonth = true;
@@ -125,6 +126,8 @@ function addHeading(z) {
 
             let child;
 
+            // If the current month is in the month list, then it sets the variable "child" to that month. If that's not
+            // the case, then it makes a new month in the months list and adds a class so that the month can be animated
             if (hasMonth) {
                 child = listMonths.children[indexMonth];
             } else {
@@ -135,13 +138,13 @@ function addHeading(z) {
                 listMonths.appendChild(child);
             }
 
-
+            // Begins the animation for the current month
             waitAndAdd(child, x);
 
             let linkList;
 
-
-            // Checks if a given month has link-list, if yes, then assign it to linkList. If not, then create a linkList
+            // Checks if a given month has a link list, if yes, then assign it to linkList. If not, then creates a
+            // link list and appends it to the current month
             if (hasLinkList) {
                 linkList = listMonths.children[indexMonth].querySelector("ul");
             } else {
@@ -154,6 +157,7 @@ function addHeading(z) {
                 }
             }
 
+            // Creates a link to the blog post from the selected date and adds it to the link list
             let node = document.createElement("li");
             let a = document.createElement("a");
             a.href = "#"+ dates[x][0].toString() + dates[x][1].toString() + dates[x][2].toString();
@@ -166,6 +170,7 @@ function addHeading(z) {
     }
 }
 
+// Rotates 
 function rotate(x) {
     const div = x.querySelector('div');
     if (div.className === "rotated" || div.className === ""){
