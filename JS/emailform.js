@@ -42,6 +42,7 @@ submitBtn.setAttribute("type", "submit")
 submitBtn.setAttribute("class", "form-control submit")
 submitBtn.setAttribute("value", "Send")
 submitBtn.setAttribute("size", "50")
+submitBtn.addEventListener('click', confirmation_form)
 
 
 contactForm.appendChild(nameInput)
@@ -60,4 +61,9 @@ function emailform() {
   } else {
     contactform.style.display = "block";
   }
+}
+
+
+function confirmation_form() {
+  alert("Vi kommer tilbake til deg innen kort tid.")
 }
