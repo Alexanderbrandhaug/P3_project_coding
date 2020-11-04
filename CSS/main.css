@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-*{    
+*{
     font-family: 'Roboto', Helvetica, sans-serif;
 }
 
@@ -41,11 +41,11 @@ body {
 }
 
 
-.navpage, .menupage{   
+.navpage, .menupage{
     position: relative;
-    color:white; 
+    color:white;
     text-decoration:none;
-    display: flex;    
+    display: flex;
     flex-direction:column;
     align-items: center;
 }
@@ -67,7 +67,7 @@ body {
 
 #footer {
     color: white;
-    text-align: center; 
+    text-align: center;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -79,7 +79,7 @@ body {
     width:auto;
     height:35px;
     z-index:10;
-    cursor: pointer;  
+    cursor: pointer;
 }
 
 #iconDiv{
@@ -171,7 +171,7 @@ body {
     height: 500px;
     bottom: 50px;
     right: 0;
-  
+
 }
 
 #Email_name{
@@ -187,7 +187,7 @@ body {
     font-size: 15px;
     border-width: thin;
 }
-  
+
 #message{
     position: absolute;
     background-color:rgba(0, 0, 0, 0);
@@ -201,11 +201,11 @@ body {
     bottom:10%;
     font-size: 15px;
     border-width: thin;
-  
-  
-  
+
+
+
   }
-  
+
 #Email_input{
     position: absolute;
     background-color:rgba(0, 0, 0, 0);
@@ -218,9 +218,9 @@ body {
     padding-top:2%;
     font-size: 15px;
     border-width: thin;
-  
+
   }
-  
+
 #send{
     position: absolute;
     background-color:rgba(0, 0, 0, 0);
@@ -233,16 +233,20 @@ body {
     height: 6%;
     margin-top: 10%;
     border-width: thin;
-  
-  
+
+
   }
-  
+
+  ::placeholder {
+    color:white;
+  }
+
 
 /*RESPONSIVE DESIGN*/
 
 /*Collapse the left and right side into onlt the left side if screen width is less than 800px*/
 @media (max-width: 800px) {
-   
+
     .whiteLine, .navpage{
         display: none;
     }
