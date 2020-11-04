@@ -45,6 +45,8 @@ body, html {
     line-height: 100%;
 }
 
+
+/*Various animations for first time visitors to forside.html*/
 @keyframes brightAnimation{
     0%{opacity: 100%;}
     100%{opacity:0%;}

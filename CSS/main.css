@@ -27,7 +27,6 @@ body {
     height:50px;
     padding-left:20px;
     padding-right:20px;
-    /* background-color:rgba(0, 0, 0, 0.75); */
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -149,17 +148,6 @@ body {
 }
 
 
-
-
-/* Test */
-/*#content {
-    top: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-grow: 1;
-}*/
-
 #right > *{
     margin-bottom: 100px;
 }
@@ -249,7 +237,11 @@ body {
   
   
   }
+  
 
+/*RESPONSIVE DESIGN*/
+
+/*Collapse the left and right side into onlt the left side if screen width is less than 800px*/
 @media (max-width: 800px) {
    
     .whiteLine, .navpage{
