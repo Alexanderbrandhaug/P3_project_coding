@@ -82,8 +82,6 @@ function check_screen_galleri() {
             return;
             }
 
-            console.log(changeScreenSizeOnce)
-
             changeScreenSizeOnce = true;
         } else if (!changeScreenSizeOnce) {
             if (right.querySelector("img") != null) {
@@ -96,7 +94,6 @@ function check_screen_galleri() {
         let right = document.getElementById("right");
         if (right.style.display === "block" && changeScreenSizeOnce === true) {
             right.style.display = "none";
-            console.log(changeScreenSizeOnce)
             changeScreenSizeOnce = false;
         }
     }
